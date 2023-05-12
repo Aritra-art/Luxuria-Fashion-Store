@@ -1,0 +1,60 @@
+.navbar {
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px 20px 30px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 25px;
+}
+.nav-item:hover {
+  border-bottom: 1px solid;
+}
+
+.nav-link {
+  color: #333;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navlink-active {
+  font-weight: bold;
+}
+
+.link-text {
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
+
+.wishlist-count,
+.cart-count {
+  position: relative;
+  bottom: 12px;
+  background: black;
+  border-radius: 50%;
+  padding: 2px 7px;
+  color: white;
+}
+
+/* FontAwesome icons */
+.fas {
+  margin-right: 5px;
+}

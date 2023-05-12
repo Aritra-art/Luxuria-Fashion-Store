@@ -1,0 +1,43 @@
+.gender-header {
+  margin: 40px 0 20px 30px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+.gender-img-container {
+  width: 100%;
+  height: 100%;
+}
+.gender-tag-container {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: space-around;
+}
+.gender-img-container-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.gender-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-out;
+  border-radius: 5px;
+}
+.gender-img:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.gender-tag-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+}
+.gender-image-link {
+  text-decoration: none;
+  width: 28%;
+  flex-basis: 28%;
+}

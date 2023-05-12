@@ -1,0 +1,13 @@
+.btn-style {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.btn-style:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+}
