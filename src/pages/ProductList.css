@@ -24,3 +24,12 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.card-trending-tag {
+  position: absolute;
+  bottom: 369px;
+  background-color: white;
+  left: -9px;
+  border-bottom-right-radius: 5px;
+  padding: 3px 6px;
+  font-weight: 600;
+}

@@ -16,6 +16,7 @@ export const ProductCard = ({ data }) => {
             category,
             size,
             thumbnail,
+            type,
           }) => {
             return (
               <div className="card-container" key={id}>
@@ -28,12 +29,15 @@ export const ProductCard = ({ data }) => {
                   />
                 </NavLink>
                 <div className="card-content">
+                  {type.toLowerCase() === "best seller" && (
+                    <div className="card-trending-tag">Trending</div>
+                  )}
                   <div className="heart-icon">
                     <i class="fa-sharp fa-regular fa-heart"></i>
                   </div>
                   <div className="card-size">{size}</div>
                   <div className="card-title-div">
-                    <NavLink to="" className="card-title">
+                    <NavLink to={`/products/${id}`} className="card-title">
                       {title}
                     </NavLink>
                   </div>

@@ -1,0 +1,66 @@
+.single-product-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 1px solid; */
+}
+.single-product-images {
+  /* border: 1px solid red; */
+  justify-content: center;
+  flex-basis: 59%;
+}
+.single-product-content {
+  /* border: 1px solid green; */
+  flex-basis: 40%;
+}
+.single-product-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.single-product-description {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: rgb(160, 160, 160);
+}
+.single-product-rating {
+  border: 1px solid;
+  width: fit-content;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.single-product-availability {
+  margin: 20px 0px;
+}
+.single-product-price {
+  margin: 30px 0;
+}
+.single-product-tag {
+  letter-spacing: 2px;
+}
+.single-product-card-btn {
+  margin: 30px 0;
+}
+.single-product-card-wishlist-btn {
+  padding: 9px 20px;
+  background: white;
+  color: black;
+  font-weight: bolder;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 30px;
+  transition: all 0.2s ease;
+}
+.single-product-card-wishlist-btn:hover {
+  cursor: pointer;
+  background-color: rgb(252, 249, 249);
+}
+.single-product-heart-icon {
+  margin-right: 10px;
+  font-size: 1rem;
+}
