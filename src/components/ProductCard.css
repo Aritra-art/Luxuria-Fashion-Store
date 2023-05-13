@@ -2,8 +2,8 @@
   border: 1px solid rgba(99, 99, 99, 0.2);
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin: 0px 10px 10px 30px;
-  width: 330px;
+  margin: 0px 10px 30px 30px;
+  width: 300px;
   height: 460px;
   position: relative;
 }
@@ -13,9 +13,18 @@
   position: relative;
 }
 .card-title {
+  text-decoration: none;
+  color: black;
   font-size: 1.4rem;
-  margin-bottom: 10px;
   text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+.card-title-div {
+  margin-bottom: 10px;
+}
+.card-title:hover {
+  color: rgb(83, 83, 83);
+  cursor: pointer;
 }
 .card-category {
   color: rgb(164, 164, 164);
@@ -52,7 +61,7 @@
   font-weight: bold;
 }
 .discount-percentage::after {
-  content: "%";
+  content: "% OFF";
 }
 .original-price {
   text-decoration: line-through;
@@ -70,4 +79,12 @@
 
 .card-btn {
   margin: 10px 0px 0px 10px;
+}
+.card-size {
+  position: absolute;
+  right: 0px;
+  top: -52px;
+  font-weight: bold;
+  background-color: white;
+  padding: 3px 6px;
 }

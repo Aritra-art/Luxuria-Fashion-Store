@@ -17,6 +17,7 @@ export const BestSellerSection = () => {
       brand: "Adidas",
       category: "Women",
       type: "Best Seller",
+      size: "M",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/bdda7140256f4a589533add7007a1c30_9366/adidas-by-stella-mccartney-logo-tee.jpg",
       images: [
@@ -37,6 +38,7 @@ export const BestSellerSection = () => {
       brand: "Adidas",
       category: "Women",
       type: "Best Seller",
+      size: "S",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/bdda7140256f4a589533add7007a1c30_9366/adidas-by-stella-mccartney-logo-tee.jpg",
       images: [
@@ -57,6 +59,7 @@ export const BestSellerSection = () => {
       brand: "Adidas",
       category: "Women",
       type: "Best Seller",
+      size: "XL",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/bdda7140256f4a589533add7007a1c30_9366/adidas-by-stella-mccartney-logo-tee.jpg",
       images: [
@@ -77,6 +80,7 @@ export const BestSellerSection = () => {
       brand: "Adidas",
       category: "Women",
       type: "Best Seller",
+      size: "XXL",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/bdda7140256f4a589533add7007a1c30_9366/adidas-by-stella-mccartney-logo-tee.jpg",
       images: [

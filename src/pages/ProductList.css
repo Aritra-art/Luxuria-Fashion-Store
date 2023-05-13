@@ -1,0 +1,26 @@
+.productlist-container-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+.productlist-filter {
+  /* padding-right: 10px; */
+  border: 1px solid;
+  flex-basis: 20%;
+}
+.productlist-container {
+  flex-basis: 79%;
+  border: 1px solid red;
+}
+.productlist-header {
+  margin: 20px 0 20px 20px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+.productlist-products {
+  border: 1px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

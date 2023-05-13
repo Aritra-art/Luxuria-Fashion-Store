@@ -7,5 +7,6 @@
   width: 100%;
   /* border: 1px solid; */
   display: flex;
-  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

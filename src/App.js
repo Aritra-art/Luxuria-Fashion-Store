@@ -6,6 +6,7 @@ import { SingleProduct } from "./pages/SingleProduct";
 import { Cart } from "./pages/Cart";
 import { Wishlist } from "./pages/Wishlist";
 import { Navbar } from "./navigation/Navbar";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

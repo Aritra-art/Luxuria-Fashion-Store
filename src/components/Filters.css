@@ -1,0 +1,33 @@
+.filter-container {
+  /* border: 4px solid red; */
+  margin: 10px 0px 10px 10px;
+}
+.filter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filter-clear-btn {
+  align-self: center;
+  margin-right: 10px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.filter-header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.filter-content {
+  /* border: 1px solid yellow; */
+}
+.price-slider-header {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.price-slider {
+  accent-color: black;
+  width: 95%;
+}

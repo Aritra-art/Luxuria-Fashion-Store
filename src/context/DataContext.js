@@ -37,6 +37,19 @@ export const DataContextProvider = ({ children }) => {
         console.error(error);
       }
     })();
+    (async () => {
+      try {
+        const { status, data } = await axios.get("/api/products");
+        if (status === 200) {
+          dispatchData({
+            type: "SET_PRODUCTS",
+            payload: data.products,
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    })();
   }, []);
   const value = { dataState };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

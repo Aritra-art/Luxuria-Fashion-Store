@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Button } from "./Button";
 import "./ProductCard.css";
 
@@ -13,16 +14,30 @@ export const ProductCard = ({ data }) => {
             discountPercentage,
             rating,
             category,
+            size,
             thumbnail,
           }) => {
             return (
               <div className="card-container" key={id}>
-                <img src={thumbnail} alt={title} width="330px" height="280px" />
+                <NavLink to={`/products`}>
+                  <img
+                    src={thumbnail}
+                    alt={title}
+                    width="300px"
+                    height="280px"
+                  />
+                </NavLink>
                 <div className="card-content">
                   <div className="heart-icon">
                     <i class="fa-sharp fa-regular fa-heart"></i>
                   </div>
-                  <div className="card-title">{title}</div>
+                  <div className="card-size">{size}</div>
+                  <div className="card-title-div">
+                    <NavLink to="" className="card-title">
+                      {title}
+                    </NavLink>
+                  </div>
+
                   <div className="card-price">
                     <span className="new-price">
                       {price - Math.round((discountPercentage / 100) * price)}

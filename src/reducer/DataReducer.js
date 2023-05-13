@@ -4,6 +4,8 @@ export const dataReducer = (dataState, action) => {
       return { ...dataState, categories: action.payload };
     case "SET_TYPES":
       return { ...dataState, types: action.payload };
+    case "SET_PRODUCTS":
+      return { ...dataState, products: action.payload };
     default:
       console.log("something went wrong");
   }

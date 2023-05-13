@@ -17,6 +17,7 @@ export const NewArrivalSection = () => {
       brand: "Adidas",
       category: "Men",
       type: "New Arrival",
+      size: "M",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/062444bd96ee4ba0a24aaf0400bf3b9e_9366/rifta-city-boy-tee.jpg",
       images: [
@@ -37,6 +38,7 @@ export const NewArrivalSection = () => {
       brand: "Adidas",
       category: "Men",
       type: "New Arrival",
+      size: "XL",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/062444bd96ee4ba0a24aaf0400bf3b9e_9366/rifta-city-boy-tee.jpg",
       images: [
@@ -57,6 +59,7 @@ export const NewArrivalSection = () => {
       brand: "Adidas",
       category: "Men",
       type: "New Arrival",
+      size: "XXL",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/062444bd96ee4ba0a24aaf0400bf3b9e_9366/rifta-city-boy-tee.jpg",
       images: [
@@ -77,6 +80,7 @@ export const NewArrivalSection = () => {
       brand: "Adidas",
       category: "Men",
       type: "New Arrival",
+      size: "L",
       thumbnail:
         "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/062444bd96ee4ba0a24aaf0400bf3b9e_9366/rifta-city-boy-tee.jpg",
       images: [
