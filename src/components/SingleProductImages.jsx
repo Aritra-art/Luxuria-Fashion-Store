@@ -19,7 +19,7 @@ export const SingleProductImages = ({ data }) => {
             style={singleProductImage}
             key={url}
             src={url}
-            alt="product image"
+            alt="product"
             width="350px"
             height="350px"
           />
