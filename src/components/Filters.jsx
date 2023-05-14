@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { BrandFilters } from "./BrandFilters";
 import { CategoryFilters } from "./CategoryFilters";
 import "./Filters.css";
@@ -5,8 +6,18 @@ import { PriceFilters } from "./PriceFilters";
 import { RatingFilters } from "./RatingFilters";
 import { SizeFilters } from "./SizeFilters";
 import { TypeFilters } from "./TypeFilters";
+import { FilterContext } from "../context/FilterContext";
+import { PriceRange } from "../utils/PriceRange";
 
 export const Filters = () => {
+  const { filterState, dispatchFilter } = useContext(FilterContext);
+  const maxPrice = Number.isInteger(PriceRange()?.maxPrice)
+    ? PriceRange()?.maxPrice
+    : 0;
+  const minPrice = Number.isInteger(PriceRange()?.minPrice)
+    ? PriceRange()?.minPrice
+    : 0;
+
   return (
     <div className="filter-container">
       <div className="filter-nav">
@@ -15,7 +26,20 @@ export const Filters = () => {
       </div>
       <div className="filter-content">
         <p className="price-slider-header">Price</p>
-        <input type="range" className="price-slider" />
+        <input
+          type="range"
+          className="price-slider"
+          max={maxPrice}
+          min={minPrice}
+          step={10}
+          value={filterState?.priceRange}
+          onChange={(e) =>
+            dispatchFilter({
+              type: "SET_PRICE_RANGE",
+              payload: e.target.value,
+            })
+          }
+        />
         <p className="price-slider-header">Categories</p>
         <CategoryFilters />
         <p className="price-slider-header">Types</p>
