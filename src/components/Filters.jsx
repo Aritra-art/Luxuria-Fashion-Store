@@ -7,15 +7,25 @@ import { RatingFilters } from "./RatingFilters";
 import { SizeFilters } from "./SizeFilters";
 import { TypeFilters } from "./TypeFilters";
 import { FilterContext } from "../context/FilterContext";
+import { DataContext } from "../context/DataContext";
 import { PriceRange } from "../utils/PriceRange";
 
 export const Filters = () => {
   const { filterState, dispatchFilter } = useContext(FilterContext);
-  const maxPrice = Number.isInteger(PriceRange()?.maxPrice)
-    ? PriceRange()?.maxPrice
+  const { dataState } = useContext(DataContext);
+  const priceArr =
+    dataState?.products &&
+    dataState?.products?.reduce((acc, { discountPercentage, price }) => {
+      const actualPrice = Number(
+        price - Math.round((discountPercentage / 100) * price)
+      );
+      return [...acc, Number(actualPrice)];
+    }, []);
+  const maxPrice = Number.isInteger(Math.max(...priceArr))
+    ? Math.max(...priceArr)
     : 0;
-  const minPrice = Number.isInteger(PriceRange()?.minPrice)
-    ? PriceRange()?.minPrice
+  const minPrice = Number.isInteger(Math.min(...priceArr))
+    ? Math.min(...priceArr)
     : 0;
 
   return (
@@ -31,7 +41,7 @@ export const Filters = () => {
           className="price-slider"
           max={maxPrice}
           min={minPrice}
-          step={10}
+          // step="10"
           value={filterState?.priceRange}
           onChange={(e) =>
             dispatchFilter({
@@ -40,6 +50,11 @@ export const Filters = () => {
             })
           }
         />
+        <div className="price-slider-content">
+          <div>{minPrice}</div>
+          <div>{maxPrice}</div>
+        </div>
+
         <p className="price-slider-header">Categories</p>
         <CategoryFilters />
         <p className="price-slider-header">Types</p>

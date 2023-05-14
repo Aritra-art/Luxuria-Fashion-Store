@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import { CheckboxCard } from "./CheckboxCard";
+import { FilterContext } from "../context/FilterContext";
 
 export const CategoryFilters = () => {
   const { dataState } = useContext(DataContext);
+  const { filterState, dispatchFilter } = useContext(FilterContext);
 
   const categories =
     dataState?.categories &&
@@ -12,5 +13,28 @@ export const CategoryFilters = () => {
         acc.includes(categoryName) ? acc : [...acc, categoryName],
       []
     );
-  return <>{categories && <CheckboxCard data={categories} />}</>;
+  return (
+    <>
+      {categories &&
+        categories?.map((category) => {
+          return (
+            <div key={category} style={{ padding: "4px" }}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={filterState?.categoryArr?.includes(category)}
+                  onChange={() =>
+                    dispatchFilter({
+                      type: "SET_CATEGORY_FILTER",
+                      payload: category,
+                    })
+                  }
+                />
+                {category}
+              </label>
+            </div>
+          );
+        })}
+    </>
+  );
 };
