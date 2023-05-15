@@ -20,8 +20,6 @@ export const SingleProduct = () => {
     })();
   }, [productId]);
 
-  console.log(singleProduct);
-
   return (
     <>
       <div className="single-product-container">

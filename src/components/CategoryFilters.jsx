@@ -22,7 +22,7 @@ export const CategoryFilters = () => {
               <label>
                 <input
                   type="checkbox"
-                  checked={filterState?.categoryArr?.includes(category)}
+                  checked={filterState?.categoryFilter?.includes(category)}
                   onChange={() =>
                     dispatchFilter({
                       type: "SET_CATEGORY_FILTER",

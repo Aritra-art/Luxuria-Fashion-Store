@@ -15,7 +15,21 @@ export const GenderSection = () => {
           {dataState.categories &&
             dataState?.categories?.map(({ _id, categoryName, thumbnail }) => {
               return (
-                <NavLink className="gender-image-link" to="/products" key={_id}>
+                <NavLink
+                  className="gender-image-link"
+                  to="/products"
+                  key={_id}
+                  onClick={() => {
+                    dispatchFilter({
+                      type: "CLEAR_ALL_FILTERS",
+                      payload: "",
+                    });
+                    dispatchFilter({
+                      type: "SET_CATEGORY_FILTER",
+                      payload: categoryName,
+                    });
+                  }}
+                >
                   <img
                     placeholder={categoryName}
                     src={thumbnail}

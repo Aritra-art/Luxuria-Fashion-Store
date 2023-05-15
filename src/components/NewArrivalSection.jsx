@@ -16,7 +16,13 @@ export const NewArrivalSection = () => {
         {dataState?.types && dataState?.types[0]?.type}
       </h1>
       <div className="newarrival-container">
-        {newArrivalArr && <ProductCard data={newArrivalArr} />}
+        {newArrivalArr && (
+          <ProductCard
+            data={newArrivalArr}
+            fromHomePage
+            typeSelection="New Arrival"
+          />
+        )}
       </div>
     </>
   );

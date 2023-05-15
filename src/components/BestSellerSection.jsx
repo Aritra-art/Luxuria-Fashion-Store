@@ -16,7 +16,13 @@ export const BestSellerSection = () => {
         {dataState?.types && dataState?.types[1]?.type}
       </h1>
       <div className="bestseller-container">
-        {bestSellerArr && <ProductCard data={bestSellerArr} />}
+        {bestSellerArr && (
+          <ProductCard
+            data={bestSellerArr}
+            fromHomePage
+            typeSelection="Best Seller"
+          />
+        )}
       </div>
     </>
   );

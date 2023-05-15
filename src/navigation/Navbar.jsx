@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, Link } from "react-router-dom";
 import "./Navbar.css";
+import { useContext } from "react";
+import { FilterContext } from "../context/FilterContext";
 export const Navbar = () => {
+  const { dispatchFilter } = useContext(FilterContext);
+
   return (
     <nav className="navbar">
       <div className="logo-container">

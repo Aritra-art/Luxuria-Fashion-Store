@@ -3,12 +3,18 @@ import menCover from "../images/HomePage/Men-cover-img.webp";
 import womenCover from "../images/HomePage/Women-cover-img.webp";
 import kidCover from "../images/HomePage/kids-cover-img.jpg";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FilterContext } from "../context/FilterContext";
 
 export const ImageSlider = () => {
   const [index, setIndex] = useState(0);
+  const { dispatchFilter } = useContext(FilterContext);
 
-  const imgArr = [menCover, womenCover, kidCover];
+  const imgArr = [
+    { imgUrl: menCover, category: "Men" },
+    { imgUrl: womenCover, category: "Women" },
+    { imgUrl: kidCover, category: "Kids" },
+  ];
 
   const sliderStyle = (indexValue) => ({
     width: "100vw",
@@ -31,14 +37,26 @@ export const ImageSlider = () => {
         onClick={() => handleSlider("left")}
       ></i>
       <div className="wrapper">
-        {imgArr.map((image) => {
+        {imgArr.map(({ imgUrl, category }) => {
           return (
-            <div style={sliderStyle(index)} key={image}>
+            <div style={sliderStyle(index)} key={imgUrl}>
               <div className="image-container">
-                <img alt="cover img" src={image} className="cover-image" />
+                <img alt="cover img" src={imgUrl} className="cover-image" />
               </div>
 
-              <NavLink className="slider-image-link">Shop Now</NavLink>
+              <NavLink
+                className="slider-image-link"
+                to="/products"
+                onClick={() => {
+                  dispatchFilter({ type: "CLEAR_ALL_FILTERS", payload: "" });
+                  dispatchFilter({
+                    type: "SET_CATEGORY_FILTER",
+                    payload: category,
+                  });
+                }}
+              >
+                Shop Now
+              </NavLink>
             </div>
           );
         })}

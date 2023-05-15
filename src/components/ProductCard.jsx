@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { Button } from "./Button";
 import "./ProductCard.css";
+import { FilterContext } from "../context/FilterContext";
+import { useContext } from "react";
 
-export const ProductCard = ({ data }) => {
+export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
+  const { dispatchFilter } = useContext(FilterContext);
+
   return (
     <>
       {data.length > 0 &&
@@ -20,7 +24,21 @@ export const ProductCard = ({ data }) => {
           }) => {
             return (
               <div className="card-container" key={id}>
-                <NavLink to={`/products`}>
+                <NavLink
+                  to={`/products`}
+                  onClick={() => {
+                    if (fromHomePage) {
+                      dispatchFilter({
+                        type: "CLEAR_ALL_FILTERS",
+                        payload: "",
+                      });
+                      dispatchFilter({
+                        type: "SET_TYPE_FILTER",
+                        payload: typeSelection,
+                      });
+                    }
+                  }}
+                >
                   <img
                     src={thumbnail}
                     alt={title}
