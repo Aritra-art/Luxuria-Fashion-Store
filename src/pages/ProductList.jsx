@@ -14,6 +14,18 @@ export const ProductList = () => {
       Number(price - Math.round((discountPercentage / 100) * price)) <=
       Number(filterState?.priceRange)
   );
+
+  if (filterState?.typeFilter?.length > 0) {
+    filteredArr = filteredArr.filter(({ type }) =>
+      filterState?.typeFilter?.includes(type)
+    );
+  }
+  if (filterState?.categoryFilter?.length > 0) {
+    filteredArr = filteredArr.filter(({ category }) =>
+      filterState?.categoryFilter?.includes(category)
+    );
+  }
+  console.log(filterState?.categoryFilter);
   return (
     <>
       <div className="productlist-container-layout">
@@ -22,7 +34,10 @@ export const ProductList = () => {
         </div>
 
         <div className="productlist-container">
-          <h1 className="productlist-header">All Products</h1>
+          <h1 className="productlist-header">
+            All Products
+            <small className="productlist-length">[{filteredArr.length}]</small>
+          </h1>
           <div className="productlist-products">
             {dataState?.products && <ProductCard data={filteredArr} />}
           </div>

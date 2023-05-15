@@ -11,8 +11,12 @@ export const SingleProduct = () => {
 
   useEffect(() => {
     (async () => {
-      const product = await getSingleProduct(productId);
-      setSingleProduct(product?.product);
+      try {
+        const product = await getSingleProduct(productId);
+        setSingleProduct(product?.product);
+      } catch (error) {
+        console.error(error);
+      }
     })();
   }, [productId]);
 

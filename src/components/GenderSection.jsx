@@ -2,9 +2,11 @@ import "./GenderSection.css";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
+import { FilterContext } from "../context/FilterContext";
 
 export const GenderSection = () => {
   const { dataState } = useContext(DataContext);
+  const { dispatchFilter } = useContext(FilterContext);
   return (
     <>
       <h1 className="gender-header">who are you shopping for ?</h1>

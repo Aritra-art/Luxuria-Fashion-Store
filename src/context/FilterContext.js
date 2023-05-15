@@ -8,6 +8,7 @@ export const FilterContextProvider = ({ children }) => {
     categoryFilter: [],
     typeFilter: [],
   });
+  console.log(filterState.categoryFilter);
   const value = { filterState, dispatchFilter };
   return (
     <FilterContext.Provider value={value}>{children}</FilterContext.Provider>
