@@ -4,6 +4,7 @@ import { DataContext } from "../context/DataContext";
 import { ProductCard } from "../components/ProductCard";
 import { Filters } from "../components/Filters";
 import { FilterContext } from "../context/FilterContext";
+import { PropagateLoader } from "react-spinners";
 
 export const ProductList = () => {
   const { dataState } = useContext(DataContext);
@@ -62,9 +63,22 @@ export const ProductList = () => {
   return (
     <>
       <div className="productlist-container-layout">
-        <div className="productlist-filter">
-          <Filters />
-        </div>
+        {dataState?.isLoading && (
+          <div style={{ paddingTop: "200px", paddingBottom: "50px" }}>
+            <PropagateLoader
+              cssOverride={{
+                left: "50%",
+                position: "absolute",
+              }}
+            />
+          </div>
+        )}
+
+        {!dataState?.isLoading && (
+          <div className="productlist-filter">
+            <Filters />
+          </div>
+        )}
 
         <div className="productlist-container">
           <h1 className="productlist-header">

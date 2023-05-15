@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import "./NewArrivalSection.css";
 import { ProductCard } from "./ProductCard";
+import { PropagateLoader } from "react-spinners";
 
 export const NewArrivalSection = () => {
   const { dataState } = useContext(DataContext);
@@ -15,6 +16,9 @@ export const NewArrivalSection = () => {
       <h1 className="newarrival-header">
         {dataState?.types && dataState?.types[0]?.type}
       </h1>
+      {dataState?.isLoading && (
+        <PropagateLoader cssOverride={{ position: "absolute", right: "50%" }} />
+      )}
       <div className="newarrival-container">
         {newArrivalArr && (
           <ProductCard
