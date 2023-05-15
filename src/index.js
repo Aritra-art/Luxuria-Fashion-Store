@@ -11,14 +11,14 @@ import { FilterContextProvider } from "./context/FilterContext";
 makeServer();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <DataContextProvider>
-        <FilterContextProvider>
-          <App />
-        </FilterContextProvider>
-      </DataContextProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <BrowserRouter>
+    <DataContextProvider>
+      <FilterContextProvider>
+        <App />
+      </FilterContextProvider>
+    </DataContextProvider>
+  </BrowserRouter>,
+  // </React.StrictMode>
   document.getElementById("root")
 );

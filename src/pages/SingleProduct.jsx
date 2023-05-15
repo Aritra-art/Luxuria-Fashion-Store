@@ -65,6 +65,10 @@ export const SingleProduct = () => {
           </div>
           <div>
             <i class="fas fa-tag single-product-tag"></i>
+            {singleProduct?.brand}
+          </div>
+          <div>
+            <i class="fas fa-tag single-product-tag"></i>
             {singleProduct?.type}
           </div>
           <div className="single-product-card-btn">

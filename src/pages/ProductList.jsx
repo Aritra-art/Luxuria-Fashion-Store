@@ -25,7 +25,40 @@ export const ProductList = () => {
       filterState?.categoryFilter?.includes(category)
     );
   }
-  console.log(filterState?.categoryFilter);
+  if (filterState?.sizeFilter?.length > 0) {
+    filteredArr = filteredArr.filter(({ size }) =>
+      filterState?.sizeFilter?.includes(size)
+    );
+  }
+  if (filterState?.brandFilter?.length > 0) {
+    filteredArr = filteredArr.filter(({ brand }) =>
+      filterState?.brandFilter?.includes(brand)
+    );
+  }
+  if (filterState?.ratingFilter?.length > 0) {
+    filteredArr = filteredArr.filter(
+      ({ rating }) => Number(rating) >= Number(filterState?.ratingFilter)
+    );
+  }
+  if (filterState?.sortPriceFilter?.length > 0) {
+    if (filterState?.sortPriceFilter === "lth") {
+      filteredArr = [...filteredArr].sort(
+        (a, b) =>
+          a?.price -
+          Math.round((a?.discountPercentage / 100) * a?.price) -
+          b?.price -
+          Math.round((b?.discountPercentage / 100) * b?.price)
+      );
+    } else if (filterState?.sortPriceFilter === "htl") {
+      filteredArr = [...filteredArr].sort(
+        (a, b) =>
+          b?.price -
+          Math.round((b?.discountPercentage / 100) * b?.price) -
+          a?.price -
+          Math.round((a?.discountPercentage / 100) * a?.price)
+      );
+    }
+  }
   return (
     <>
       <div className="productlist-container-layout">

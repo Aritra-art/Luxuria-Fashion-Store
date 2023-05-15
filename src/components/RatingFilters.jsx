@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { FilterContext } from "../context/FilterContext";
+
 export const RatingFilters = () => {
+  const { filterState, dispatchFilter } = useContext(FilterContext);
   const ratingStyle = {
     display: "flex",
     flexDirection: "column",
@@ -8,20 +12,26 @@ export const RatingFilters = () => {
   const ratingLabelStyle = {
     margin: "4px 0px",
   };
+  const ratingArr = [4, 3, 2, 1];
   return (
-    <div style={ratingStyle}>
-      <label style={ratingLabelStyle}>
-        <input type="radio" name="ratingfilter" value="4" />4 stars & above
-      </label>
-      <label style={ratingLabelStyle}>
-        <input type="radio" name="ratingfilter" value="3" />3 stars & above
-      </label>
-      <label style={ratingLabelStyle}>
-        <input type="radio" name="ratingfilter" value="2" />2 stars & above
-      </label>
-      <label style={ratingLabelStyle}>
-        <input type="radio" name="ratingfilter" value="1" />1 stars & above
-      </label>
+    <div
+      style={ratingStyle}
+      value={filterState.ratingFilter}
+      onChange={(e) => {
+        dispatchFilter({
+          type: "SET_RATING_FILTER",
+          payload: e.target.value,
+        });
+      }}
+    >
+      {ratingArr.map((rating) => {
+        return (
+          <label style={ratingLabelStyle} key={rating}>
+            <input type="radio" name="ratingfilter" value={rating} />
+            {rating} {rating === 1 ? "star" : "stars"} and above
+          </label>
+        );
+      })}
     </div>
   );
 };

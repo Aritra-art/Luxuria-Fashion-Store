@@ -18,6 +18,34 @@ export const filterReducer = (filterState, { type, payload }) => {
           ? filterState?.typeFilter?.filter((type) => type !== payload)
           : [...filterState?.typeFilter, payload],
       };
+    case "SET_SIZE_FILTER":
+      return {
+        ...filterState,
+        sizeFilter: filterState?.sizeFilter?.includes(payload)
+          ? filterState?.sizeFilter?.filter((size) => size !== payload)
+          : [...filterState?.sizeFilter, payload],
+      };
+    case "SET_BRAND_FILTER":
+      return {
+        ...filterState,
+        brandFilter: filterState?.brandFilter?.includes(payload)
+          ? filterState?.brandFilter?.filter((brand) => brand !== payload)
+          : [...filterState?.brandFilter, payload],
+      };
+    case "SET_RATING_FILTER":
+      return { ...filterState, ratingFilter: payload };
+    case "SET_SORT_PRICE":
+      return { ...filterState, sortPriceFilter: payload };
+    case "CLEAR_ALL_FILTERS":
+      return {
+        priceRange: 10000,
+        categoryFilter: [],
+        typeFilter: [],
+        sizeFilter: [],
+        brandFilter: [],
+        ratingFilter: payload,
+        sortPriceFilter: payload,
+      };
     default:
       console.log("Something went wrong");
   }

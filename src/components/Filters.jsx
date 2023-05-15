@@ -32,7 +32,14 @@ export const Filters = () => {
     <div className="filter-container">
       <div className="filter-nav">
         <p className="filter-header">Filters</p>
-        <button className="filter-clear-btn">Clear</button>
+        <button
+          className="filter-clear-btn"
+          onClick={() =>
+            dispatchFilter({ type: "CLEAR_ALL_FILTERS", payload: "" })
+          }
+        >
+          Clear
+        </button>
       </div>
       <div className="filter-content">
         <p className="price-slider-header">Price</p>
