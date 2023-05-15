@@ -7,6 +7,7 @@ import { Cart } from "./pages/Cart";
 import { Wishlist } from "./pages/Wishlist";
 import { Navbar } from "./navigation/Navbar";
 import { Footer } from "./components/Footer";
+import { Signup } from "./pages/Auth/Signup";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products/:productId" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </div>

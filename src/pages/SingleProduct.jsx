@@ -1,16 +1,14 @@
 import { useParams } from "react-router";
 import { getSingleProduct } from "../utils/getSingleProduct";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./SingleProduct.css";
 import { SingleProductImages } from "../components/SingleProductImages";
 import { Button } from "../components/Button";
-import { DataContext } from "../context/DataContext";
 import { PropagateLoader } from "react-spinners";
 
 export const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const { productId } = useParams();
-  const { dispatchData } = useContext(DataContext);
 
   const getAProduct = async () => {
     try {

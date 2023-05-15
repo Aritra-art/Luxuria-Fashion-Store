@@ -3,6 +3,10 @@
 * {
   font-family: "Noto Sans", sans-serif;
 }
+*::selection {
+  color: white;
+  background-color: black;
+}
 
 .App {
 }

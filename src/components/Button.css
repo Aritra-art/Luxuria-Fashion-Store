@@ -5,9 +5,14 @@
   font-weight: bold;
   border-radius: 4px;
   font-size: 0.9rem;
+  transition: all 0.2s ease-in;
 }
 .btn-style:hover {
   cursor: pointer;
   background-color: whitesmoke;
   color: black;
+}
+.signup-content-link {
+  margin-top: 8px;
+  font-size: 1rem;
 }

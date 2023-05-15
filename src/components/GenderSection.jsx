@@ -31,7 +31,7 @@ export const GenderSection = () => {
                   }}
                 >
                   <img
-                    placeholder={categoryName}
+                    alt={categoryName}
                     src={thumbnail}
                     className="gender-img"
                   />
