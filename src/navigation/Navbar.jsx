@@ -59,7 +59,7 @@ export const Navbar = () => {
         </li>
         <li className="nav-item">
           <NavLink
-            to="/account"
+            to="/login"
             className={({ isActive }) =>
               isActive ? "nav-link navlink-active" : "nav-link"
             }

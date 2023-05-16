@@ -1,23 +1,26 @@
 import { NavLink } from "react-router-dom";
 import "./Signup.css";
 import { useState } from "react";
+import { postSignupData } from "../../utils/Auth/postSignupData";
 
 export const Signup = () => {
   const [signup, setSignUp] = useState({
     fName: "",
     lName: "",
     email: "",
-    pass: "",
+    password: "",
     cPass: "",
     passErr: "",
   });
   const signupSubmitHandler = (e) => {
     e.preventDefault();
-    if (signup.pass === signup.cPass) {
+    if (signup.password === signup.cPass) {
       setSignUp((signup) => ({
         ...signup,
         passErr: "",
       }));
+      const { fName, lName, email, password, cPass } = signup;
+      postSignupData(fName, lName, email, password, cPass);
     } else {
       setSignUp((signup) => ({
         ...signup,
@@ -86,10 +89,10 @@ export const Signup = () => {
               <input
                 required={true}
                 placeholder="Password"
-                name="pass"
+                name="password"
                 type="password"
                 className="signup-content-input"
-                value={signup.pass}
+                value={signup.password}
                 onChange={handleInputChange}
               />
             </label>
@@ -122,7 +125,7 @@ export const Signup = () => {
                   letterSpacing: "1px",
                 }}
               >
-                signin
+                Sign In
               </NavLink>
             </small>
           </form>

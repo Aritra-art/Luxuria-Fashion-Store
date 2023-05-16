@@ -8,6 +8,7 @@ import { Wishlist } from "./pages/Wishlist";
 import { Navbar } from "./navigation/Navbar";
 import { Footer } from "./components/Footer";
 import { Signup } from "./pages/Auth/Signup";
+import { Login } from "./pages/Auth/Login";
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:productId" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </div>

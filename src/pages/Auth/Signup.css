@@ -7,7 +7,7 @@
 }
 .signup-content-layout {
   width: 44%;
-  border-left: 1px solid;
+  border-left: 3px solid;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -32,16 +32,19 @@
   justify-content: flex-start;
 }
 .signup-content-placeholder {
-  margin: 15px;
+  margin: 10px;
   text-transform: uppercase;
-  font-size: 1.3rem;
-  letter-spacing: 1.5px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
 }
 .signup-content-input {
   padding: 10px 20px;
   border-radius: 5px;
+  margin-top: 8px;
   font-size: 1.2rem;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 .signup-content-btn {
   padding: 10px 20px;
