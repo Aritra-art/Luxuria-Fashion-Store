@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
-import { FilterContext } from "../context/FilterContext";
+import { AuthContext } from "../context/Auth/AuthContext";
+import { DataContext } from "../context/DataContext";
+
 export const Navbar = () => {
+  const { authState } = useContext(AuthContext);
+  const { dataState } = useContext(DataContext);
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -54,12 +58,12 @@ export const Navbar = () => {
           >
             <i className="fas fa-shopping-cart"></i>
             <span className="link-text">Cart</span>
-            <span className="cart-count">0</span>
+            <span className="cart-count">{dataState?.cart?.length}</span>
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink
-            to="/login"
+            to={authState?.isLoggedin ? "/logout" : "/login"}
             className={({ isActive }) =>
               isActive ? "nav-link navlink-active" : "nav-link"
             }

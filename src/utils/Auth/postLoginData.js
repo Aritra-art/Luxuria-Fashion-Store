@@ -4,13 +4,11 @@ export const postLoginData = async (loginData) => {
   if (loginData.hasOwnProperty("err")) {
     try {
       const { email, password } = loginData;
-      const { status, data } = await axios.post("/api/auth/login", {
+      const response = await axios.post("/api/auth/login", {
         email,
         password,
       });
-      if (status === 200) {
-        alert("login Successfull");
-      }
+      return response;
     } catch (error) {
       console.error(error);
     }
@@ -21,7 +19,7 @@ export const postLoginData = async (loginData) => {
         email,
         password,
       });
-      console.log(response);
+      return response;
     } catch (error) {
       console.error(error);
     }

@@ -10,6 +10,8 @@ export const dataReducer = (dataState, action) => {
       return { ...dataState, types: action.payload, isLoading: false };
     case "SET_PRODUCTS":
       return { ...dataState, products: action.payload, isLoading: false };
+    case "SET_CART_ITEMS":
+      return { ...dataState, cart: action.payload };
     default:
       console.log("something went wrong");
   }

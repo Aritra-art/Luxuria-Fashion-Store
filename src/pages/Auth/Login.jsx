@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Login.css";
-import { useState } from "react";
-import { postLoginData } from "../../utils/Auth/postLoginData";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 export const Login = () => {
   const [login, setLogin] = useState({
@@ -9,20 +9,21 @@ export const Login = () => {
     password: "",
     err: "",
   });
+  const { loginUser } = useContext(AuthContext);
 
   const loginHandler = (e) => {
     e.preventDefault();
     if (e.target.innerText === "Sign In as a Guest") {
       setLogin((login) => ({ ...login, err: "" }));
 
-      postLoginData({
+      loginUser({
         email: "adarshbalika@gmail.com",
         password: "adarshbalika",
       });
     } else {
       if (login?.email?.length > 0 && login?.password?.length > 0) {
         setLogin((login) => ({ ...login, err: "" }));
-        postLoginData(login);
+        loginUser(login);
       } else {
         setLogin((login) => ({
           ...login,

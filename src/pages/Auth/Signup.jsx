@@ -1,9 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "./Signup.css";
-import { useState } from "react";
-import { postSignupData } from "../../utils/Auth/postSignupData";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 export const Signup = () => {
+  const { signupUser, authState } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [signup, setSignUp] = useState({
     fName: "",
     lName: "",
@@ -12,6 +14,12 @@ export const Signup = () => {
     cPass: "",
     passErr: "",
   });
+
+  // useEffect(() => {
+  //   if (authState?.isLoggedin) {
+  //     navigate("/products");
+  //   }
+  // });
   const signupSubmitHandler = (e) => {
     e.preventDefault();
     if (signup.password === signup.cPass) {
@@ -20,7 +28,7 @@ export const Signup = () => {
         passErr: "",
       }));
       const { fName, lName, email, password, cPass } = signup;
-      postSignupData(fName, lName, email, password, cPass);
+      signupUser({ fName, lName, email, password, cPass });
     } else {
       setSignUp((signup) => ({
         ...signup,
