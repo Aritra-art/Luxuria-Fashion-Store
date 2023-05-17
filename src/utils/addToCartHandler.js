@@ -22,3 +22,7 @@ export const addToCartHandler = async (product, dispatchData) => {
     console.error(error);
   }
 };
+
+export const isItemPresentInCart = (dataState, itemId) => {
+  return dataState?.cart?.find(({ id }) => id === itemId) ? true : false;
+};

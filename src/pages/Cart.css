@@ -1,19 +1,17 @@
 .cart-container-layout {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid;
   width: 100%;
   height: 100%;
 }
 
 .cart-container-items {
   /* border: 1px solid red; */
-  width: 50%;
+  width: 60%;
   height: 100%;
 }
 .cart-container-price {
-  border-left: 1px solid green;
-  width: 49%;
+  width: 39%;
   height: 100%;
   text-align: center;
 }
@@ -21,4 +19,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1.5rem;
+}
+hr {
+  width: 80%;
 }

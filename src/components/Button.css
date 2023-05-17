@@ -7,10 +7,24 @@
   font-size: 0.9rem;
   transition: all 0.2s ease-in;
 }
+.btn-style-secondary {
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in;
+}
 .btn-style:hover {
   cursor: pointer;
   background-color: whitesmoke;
   color: black;
+}
+.btn-style-secondary:hover {
+  cursor: pointer;
+  background-color: black;
+  color: whitesmoke;
 }
 .signup-content-link {
   margin-top: 8px;

@@ -1,16 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 import "./ProductCard.css";
 import { FilterContext } from "../context/FilterContext";
 import { useContext } from "react";
 import { AuthContext } from "../context/Auth/AuthContext";
-import { addToCartHandler } from "../utils/addToCartHandler";
+import {
+  addToCartHandler,
+  isItemPresentInCart,
+} from "../utils/addToCartHandler";
 import { DataContext } from "../context/DataContext";
 
 export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
   const { dispatchFilter } = useContext(FilterContext);
   const { authState } = useContext(AuthContext);
-  const { dispatchData } = useContext(DataContext);
+  const { dataState, dispatchData } = useContext(DataContext);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -81,12 +85,21 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   if (!authState?.isLoggedin) {
                     alert("please login to continue");
                   } else {
-                    console.log("adding");
-                    addToCartHandler(item, dispatchData);
+                    if (!isItemPresentInCart(dataState, id)) {
+                      addToCartHandler(item, dispatchData);
+                    } else {
+                      navigate("/cart");
+                    }
                   }
                 }}
               >
-                <Button title="Add To Cart" />
+                <Button
+                  title={
+                    isItemPresentInCart(dataState, id)
+                      ? "Go to Cart"
+                      : "Add to Cart"
+                  }
+                />
               </div>
             </div>
           );
