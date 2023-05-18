@@ -26,6 +26,9 @@
 .nav-item {
   margin-right: 25px;
 }
+.nav-item-hoverles {
+  margin-right: 25px;
+}
 .nav-item:hover {
   border-bottom: 1px solid;
 }

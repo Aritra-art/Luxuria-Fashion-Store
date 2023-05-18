@@ -35,6 +35,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
             size,
             thumbnail,
             type,
+            stock,
           } = item;
           return (
             <div className="card-container" key={id}>
@@ -55,6 +56,12 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
               >
                 <img src={thumbnail} alt={title} width="300px" height="280px" />
               </NavLink>
+              {!stock && (
+                <div className="">
+                  <b className="out-of-stock">out of stock</b>
+                </div>
+              )}
+
               <div className="card-content">
                 {type.toLowerCase() === "best seller" && (
                   <div className="card-trending-tag">Trending</div>
@@ -116,6 +123,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 }}
               >
                 <Button
+                  disabled={!stock ? true : false}
                   title={
                     isItemPresentInCart(dataState, id)
                       ? "Go to Cart"

@@ -1,14 +1,24 @@
 import { useParams } from "react-router";
 import { getSingleProduct } from "../utils/getSingleProduct";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./SingleProduct.css";
 import { SingleProductImages } from "../components/SingleProductImages";
 import { Button } from "../components/Button";
 import { PropagateLoader } from "react-spinners";
+import { AuthContext } from "../context/Auth/AuthContext";
+import {
+  addToCartHandler,
+  isItemPresentInCart,
+} from "../utils/addToCartHandler";
+import { DataContext } from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 export const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const { productId } = useParams();
+  const { authState } = useContext(AuthContext);
+  const { dataState, dispatchData } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const getAProduct = async () => {
     try {
@@ -18,7 +28,6 @@ export const SingleProduct = () => {
       console.error(error);
     }
   };
-  console.log(singleProduct);
 
   useEffect(() => {
     getAProduct();
@@ -84,9 +93,29 @@ export const SingleProduct = () => {
               <i class="fas fa-tag single-product-tag"></i>
               {singleProduct?.type}
             </div>
-            <div className="single-product-card-btn">
+            <div
+              className="single-product-card-btn"
+              onClick={() => {
+                if (!authState?.isLoggedin) {
+                  alert("please login to continue");
+                } else {
+                  if (!isItemPresentInCart(dataState, singleProduct?.id)) {
+                    addToCartHandler(singleProduct, dispatchData);
+                  } else {
+                    navigate("/cart");
+                  }
+                }
+              }}
+            >
               {" "}
-              <Button title="Add to Cart"></Button>
+              <Button
+                title={
+                  isItemPresentInCart(dataState, singleProduct?.id)
+                    ? "Go to Cart"
+                    : "Add to Cart"
+                }
+                disabled={!singleProduct?.stock ? true : false}
+              ></Button>
               <button className="single-product-card-wishlist-btn">
                 <i class="fa-sharp fa-regular fa-heart single-product-heart-icon"></i>
                 Wishlist

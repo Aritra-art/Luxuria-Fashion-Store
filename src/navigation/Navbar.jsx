@@ -3,10 +3,12 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/Auth/AuthContext";
 import { DataContext } from "../context/DataContext";
+import { Button } from "../components/Button";
 
 export const Navbar = () => {
   const { authState } = useContext(AuthContext);
   const { dataState } = useContext(DataContext);
+  console.log(authState?.userDetails);
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -63,15 +65,35 @@ export const Navbar = () => {
             <span className="cart-count">{dataState?.cart?.length}</span>
           </NavLink>
         </li>
-        <li className="nav-item">
+        <li
+          className={authState?.isLoggedin ? "nav-item-hoverles" : "nav-item"}
+        >
           <NavLink
             to={authState?.isLoggedin ? "/logout" : "/login"}
             className={({ isActive }) =>
               isActive ? "nav-link navlink-active" : "nav-link"
             }
           >
-            <i className="fas fa-user"></i>
-            <span className="link-text">Account</span>
+            {!authState?.isLoggedin && <i className="fas fa-user"></i>}
+            <span className="link-text">
+              {authState?.isLoggedin ? (
+                <span
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    padding: "4px 6px",
+                    borderRadius: "3px",
+                    fontWeight: "600",
+                    textTransform: "uppercase",
+                    letterSpacing: "1.5px",
+                  }}
+                >
+                  {authState?.userDetails?.firstName}
+                </span>
+              ) : (
+                "Account"
+              )}
+            </span>
           </NavLink>
         </li>
       </ul>
