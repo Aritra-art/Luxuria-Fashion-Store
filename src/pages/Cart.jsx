@@ -4,19 +4,24 @@ import "./Cart.css";
 import { DataContext } from "../context/DataContext";
 import { CartDetails } from "../components/CartDetails";
 import { Button } from "../components/Button";
+import { useNavigate } from "react-router";
 
-export const Cart = () => {
-  const { dataState } = useContext(DataContext);
-  const totalCartPrice = dataState?.cart?.reduce(
+export const totalCartPrice = (dataState) =>
+  dataState?.cart?.reduce(
     (total, { price, discountPercentage, qty }) =>
       total + qty * (price - Math.round((discountPercentage / 100) * price)),
     0
   );
-  const discountedAmount = dataState?.cart?.reduce(
+export const discountedAmount = (dataState) =>
+  dataState?.cart?.reduce(
     (acc, { price, qty, discountPercentage }) =>
       acc + qty * Math.round((discountPercentage / 100) * price),
     0
   );
+
+export const Cart = () => {
+  const navigate = useNavigate();
+  const { dataState } = useContext(DataContext);
 
   const divStyle = {
     display: "flex",
@@ -34,20 +39,28 @@ export const Cart = () => {
           <h2 className="cart-container-price-header">Cart Price Details</h2>
           <hr />
           <CartDetails data={dataState?.cart} />
-          <div style={divStyle}>
-            <b style={{ fontSize: "1.5rem" }}>Discount</b>{" "}
-            <b style={{ fontSize: "1.4rem", color: "#16a34a" }}>
-              - ₹{discountedAmount}
+          <div>
+            <b style={{ fontSize: "1.4rem" }}>
+              <small>
+                You are saving{" "}
+                <span style={{ color: "#16a34a" }}>
+                  ₹{discountedAmount(dataState)}
+                </span>{" "}
+                in this order
+              </small>
             </b>
           </div>
           <hr />
           <div style={divStyle}>
             <b style={{ fontSize: "1.5rem" }}>Total Price</b>{" "}
             <span>
-              <b style={{ fontSize: "1.4rem" }}>₹{totalCartPrice}</b>
+              <b style={{ fontSize: "1.4rem" }}>₹{totalCartPrice(dataState)}</b>
             </span>
           </div>
-          <div className="cart-container-checkoutbtn">
+          <div
+            className="cart-container-checkoutbtn"
+            onClick={() => navigate("/checkout")}
+          >
             <Button title="Proceed to checkout" />
           </div>
         </div>

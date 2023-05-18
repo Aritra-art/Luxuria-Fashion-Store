@@ -1,0 +1,59 @@
+.card {
+  margin: 20px auto;
+  width: 90%;
+  border: 2px solid rgba(0, 0, 0, 0.24);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.checkout__container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkout__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address__name {
+  display: inline;
+}
+
+.card {
+  height: fit-content;
+  padding: 1rem 0;
+}
+
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout__item,
+.total__price {
+  padding: 0.3rem 1.5rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.total__price {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.checkout__heading {
+  font-size: 1.5rem;
+
+  text-align: center;
+}
+
+.checkout__qty,
+.checkout__discount,
+.checkout__price {
+  float: right;
+}
+
+.place-order__btn {
+  padding: 0 1.5rem;
+}

@@ -1,8 +1,6 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import { dataReducer } from "../reducer/DataReducer";
-import { getCartItems } from "../utils/getCartItems";
-import { getWishlistItems } from "../utils/getWishlistItems";
 
 export const DataContext = createContext();
 
@@ -14,6 +12,7 @@ export const DataContextProvider = ({ children }) => {
     types: [],
     cart: [],
     wishlist: [],
+    address: [],
   });
   const encodedToken = localStorage.getItem("userToken");
   const getCategories = async () => {
@@ -56,32 +55,6 @@ export const DataContextProvider = ({ children }) => {
       console.error(error);
     }
   };
-  // const cartItems = async () => {
-  //   try {
-  //     const response = await getCartItems(encodedToken);
-  //     if (response?.status === 200) {
-  //       dispatchData({
-  //         type: "SET_CART_ITEMS",
-  //         payload: response?.data?.cart,
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-  // const wishlistItems = async () => {
-  //   try {
-  //     const response = await getWishlistItems(encodedToken);
-  //     if (response?.status === 200) {
-  //       dispatchData({
-  //         type: "SET_WISHLIST_ITEMS",
-  //         payload: response?.data?.wishlist,
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   useEffect(() => {
     dispatchData({
       type: "SET_LOADER_TRUE",
@@ -90,10 +63,7 @@ export const DataContextProvider = ({ children }) => {
     getCategories();
     getTypes();
     getProducts();
-    // cartItems();
-    // wishlistItems();
   }, [dispatchData]);
-  // console.log(dataState?.wishlist);
 
   const value = { dataState, dispatchData };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

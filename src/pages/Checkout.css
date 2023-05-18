@@ -1,0 +1,15 @@
+.checkout-container-layout {
+  width: 100%;
+  height: 100vh;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkout-address {
+  width: 50%;
+  border: 1px solid green;
+}
+.checkout-price {
+  width: 49%;
+}
