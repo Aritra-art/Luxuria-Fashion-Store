@@ -11,7 +11,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github"></i>
           </a>
           <a
             className="social-pill"
@@ -19,7 +19,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-twitter"></i>
           </a>
           <a
             className="social-pill"

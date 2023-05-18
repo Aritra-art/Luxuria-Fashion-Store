@@ -93,7 +93,7 @@ export const DataContextProvider = ({ children }) => {
     // cartItems();
     // wishlistItems();
   }, [dispatchData]);
-  console.log(dataState?.wishlist);
+  // console.log(dataState?.wishlist);
 
   const value = { dataState, dispatchData };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

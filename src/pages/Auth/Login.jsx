@@ -12,8 +12,8 @@ export const Login = () => {
   const { loginUser } = useContext(AuthContext);
 
   const loginHandler = (e) => {
-    e.preventDefault();
     if (e.target.innerText === "Sign In as a Guest") {
+      console.log("guest");
       setLogin((login) => ({ ...login, err: "" }));
 
       loginUser({

@@ -74,7 +74,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   }}
                 >
                   {isItemPresentInWishlist(dataState, id) ? (
-                    <i class="fas fa-heart solid-heart"></i>
+                    <i className="fas fa-heart solid-heart"></i>
                   ) : (
                     <i className="fa-sharp fa-regular fa-heart"></i>
                   )}
@@ -98,7 +98,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 <div className="card-category">{category}</div>
                 <div className="card-rating">
                   {rating}
-                  <i class="fas fa-star rating-star"></i>
+                  <i className="fas fa-star rating-star"></i>
                 </div>
               </div>
               <div
