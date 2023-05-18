@@ -56,32 +56,32 @@ export const DataContextProvider = ({ children }) => {
       console.error(error);
     }
   };
-  const cartItems = async () => {
-    try {
-      const response = await getCartItems(encodedToken);
-      if (response?.status === 200) {
-        dispatchData({
-          type: "SET_CART_ITEMS",
-          payload: response?.data?.cart,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const wishlistItems = async () => {
-    try {
-      const response = await getWishlistItems(encodedToken);
-      if (response?.status === 200) {
-        dispatchData({
-          type: "SET_WISHLIST_ITEMS",
-          payload: response?.data?.wishlist,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const cartItems = async () => {
+  //   try {
+  //     const response = await getCartItems(encodedToken);
+  //     if (response?.status === 200) {
+  //       dispatchData({
+  //         type: "SET_CART_ITEMS",
+  //         payload: response?.data?.cart,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // const wishlistItems = async () => {
+  //   try {
+  //     const response = await getWishlistItems(encodedToken);
+  //     if (response?.status === 200) {
+  //       dispatchData({
+  //         type: "SET_WISHLIST_ITEMS",
+  //         payload: response?.data?.wishlist,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   useEffect(() => {
     dispatchData({
       type: "SET_LOADER_TRUE",
@@ -90,8 +90,8 @@ export const DataContextProvider = ({ children }) => {
     getCategories();
     getTypes();
     getProducts();
-    cartItems();
-    wishlistItems();
+    // cartItems();
+    // wishlistItems();
   }, [dispatchData]);
   console.log(dataState?.wishlist);
 

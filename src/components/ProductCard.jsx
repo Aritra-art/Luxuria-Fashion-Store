@@ -76,7 +76,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   {isItemPresentInWishlist(dataState, id) ? (
                     <i class="fas fa-heart solid-heart"></i>
                   ) : (
-                    <i class="fa-sharp fa-regular fa-heart"></i>
+                    <i className="fa-sharp fa-regular fa-heart"></i>
                   )}
                 </div>
                 <div className="card-size">{size}</div>
