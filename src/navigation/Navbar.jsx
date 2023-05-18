@@ -3,12 +3,10 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/Auth/AuthContext";
 import { DataContext } from "../context/DataContext";
-import { Button } from "../components/Button";
 
 export const Navbar = () => {
   const { authState } = useContext(AuthContext);
   const { dataState } = useContext(DataContext);
-  console.log(authState?.userDetails);
   return (
     <nav className="navbar">
       <div className="logo-container">

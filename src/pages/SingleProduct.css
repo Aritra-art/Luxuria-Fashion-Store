@@ -48,12 +48,12 @@
 }
 .single-product-card-wishlist-btn {
   padding: 9px 20px;
+  margin: 30px 0;
   background: white;
   color: black;
   font-weight: bolder;
   border-radius: 4px;
   font-size: 0.9rem;
-  margin-left: 30px;
   transition: all 0.2s ease;
 }
 .single-product-card-wishlist-btn:hover {
@@ -68,4 +68,9 @@
   font-weight: 100;
   font-size: 1.1rem;
   margin-left: 6px;
+}
+.single-product-card-buttons {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }

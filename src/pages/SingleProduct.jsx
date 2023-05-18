@@ -12,6 +12,11 @@ import {
 } from "../utils/addToCartHandler";
 import { DataContext } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import {
+  addToWishlistHandler,
+  isItemPresentInWishlist,
+} from "../utils/addToWishlistHandler";
+import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
 
 export const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
@@ -93,32 +98,58 @@ export const SingleProduct = () => {
               <i class="fas fa-tag single-product-tag"></i>
               {singleProduct?.type}
             </div>
-            <div
-              className="single-product-card-btn"
-              onClick={() => {
-                if (!authState?.isLoggedin) {
-                  alert("please login to continue");
-                } else {
-                  if (!isItemPresentInCart(dataState, singleProduct?.id)) {
-                    addToCartHandler(singleProduct, dispatchData);
+            <div className="single-product-card-buttons">
+              <div
+                className="single-product-card-btn"
+                onClick={() => {
+                  if (!authState?.isLoggedin) {
+                    alert("please login to continue");
                   } else {
-                    navigate("/cart");
+                    if (!isItemPresentInCart(dataState, singleProduct?.id)) {
+                      addToCartHandler(singleProduct, dispatchData);
+                    } else {
+                      navigate("/cart");
+                    }
                   }
-                }
-              }}
-            >
-              {" "}
-              <Button
-                title={
-                  isItemPresentInCart(dataState, singleProduct?.id)
-                    ? "Go to Cart"
-                    : "Add to Cart"
-                }
-                disabled={!singleProduct?.stock ? true : false}
-              ></Button>
-              <button className="single-product-card-wishlist-btn">
-                <i class="fa-sharp fa-regular fa-heart single-product-heart-icon"></i>
-                Wishlist
+                }}
+              >
+                <Button
+                  title={
+                    isItemPresentInCart(dataState, singleProduct?.id)
+                      ? "Go to Cart"
+                      : "Add to Cart"
+                  }
+                  disabled={!singleProduct?.stock ? true : false}
+                ></Button>
+              </div>
+              <button
+                className="single-product-card-wishlist-btn"
+                onClick={() => {
+                  if (!authState?.isLoggedin) {
+                    alert("please login to continue");
+                  } else {
+                    if (isItemPresentInWishlist(dataState, singleProduct?.id)) {
+                      removeFromWishlistHandler(
+                        dispatchData,
+                        singleProduct?.id
+                      );
+                    } else {
+                      addToWishlistHandler(dispatchData, singleProduct);
+                    }
+                  }
+                }}
+              >
+                {isItemPresentInWishlist(dataState, singleProduct?.id) ? (
+                  <span>
+                    <i class=" fas fa-heart single-product-heart-icon"></i>
+                    Wishlisted
+                  </span>
+                ) : (
+                  <span>
+                    <i className="fa-sharp fa-regular fa-heart single-product-heart-icon"></i>
+                    Wishlist
+                  </span>
+                )}
               </button>
             </div>
           </div>
