@@ -78,7 +78,7 @@ export const DataContextProvider = ({ children }) => {
     getProducts();
     cartItems();
   }, [dispatchData]);
-  console.log(dataState?.cart[0]);
+  // console.log(dataState?.cart[0]);
 
   const value = { dataState, dispatchData };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

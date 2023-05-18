@@ -3,6 +3,7 @@ import { DataContext } from "../context/DataContext";
 import "./CartItemsRender.css";
 import { Button } from "./Button";
 import { removeFromCartHandler } from "../utils/removeFromCartHandler";
+import { handleQuantityChangeCart } from "../utils/handleQuantityChangeCart";
 
 export const CartItemsRender = () => {
   const { dataState, dispatchData } = useContext(DataContext);
@@ -45,7 +46,14 @@ export const CartItemsRender = () => {
                 <div className="cart-item-size">
                   Brand: <b>{brand}</b>
                 </div>
-                <i class="fas fa-plus quantity-btn"></i>
+                <span
+                  onClick={() =>
+                    handleQuantityChangeCart(dispatchData, id, "increment")
+                  }
+                >
+                  <i class="fas fa-plus quantity-btn"></i>
+                </span>
+
                 <span
                   style={{
                     margin: "3px 12px 0px 10px",
@@ -55,7 +63,18 @@ export const CartItemsRender = () => {
                 >
                   {qty}
                 </span>
-                <i class="fas fa-minus quantity-btn"></i>
+                <span
+                  onClick={() => {
+                    if (qty === 1) {
+                      removeFromCartHandler(dispatchData, id);
+                    } else {
+                      handleQuantityChangeCart(dispatchData, id, "decrement");
+                    }
+                  }}
+                >
+                  <i class="fas fa-minus quantity-btn"></i>
+                </span>
+
                 <div className="cart-item-btns">
                   <div
                     onClick={() => removeFromCartHandler(dispatchData, id)}
