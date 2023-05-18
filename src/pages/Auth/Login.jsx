@@ -14,9 +14,10 @@ export const Login = () => {
   const loginHandler = (e) => {
     e.preventDefault();
     if (e.target.innerText === "Sign In as a Guest") {
-      console.log("guest");
-      setLogin((login) => ({ ...login, err: "" }));
-
+      setLogin((login) => ({
+        ...login,
+        err: "",
+      }));
       loginUser({
         email: "adarshbalika@gmail.com",
         password: "adarshbalika",
@@ -59,7 +60,7 @@ export const Login = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="aritrachowdhury@gmail.com"
                 className="login-container-input"
                 onChange={handleChangeInput}
               />
@@ -69,7 +70,7 @@ export const Login = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="******"
                 className="login-container-input"
                 onChange={handleChangeInput}
               />

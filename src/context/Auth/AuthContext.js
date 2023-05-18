@@ -28,7 +28,6 @@ export const AuthContextProvider = ({ children }) => {
 
   const loginUser = async (loginData) => {
     try {
-      console.log({ loginUser: loginData });
       const response = await postLoginData(loginData);
       if (response?.status === 200) {
         localStorage.setItem("userToken", response?.data?.encodedToken);
@@ -41,7 +40,7 @@ export const AuthContextProvider = ({ children }) => {
       }
     } catch (error) {
       dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
-      console.error(error, "loginUser");
+      console.error(error);
     }
   };
   const value = { authState, dispatchAuth, signupUser, loginUser };

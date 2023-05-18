@@ -4,9 +4,16 @@ import "./CartItemsRender.css";
 import { Button } from "./Button";
 import { removeFromCartHandler } from "../utils/removeFromCartHandler";
 import { handleQuantityChangeCart } from "../utils/handleQuantityChangeCart";
+import {
+  addToWishlistHandler,
+  isItemPresentInWishlist,
+} from "../utils/addToWishlistHandler";
+import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
+import { useNavigate } from "react-router";
 
 export const CartItemsRender = () => {
   const { dataState, dispatchData } = useContext(DataContext);
+  const navigate = useNavigate();
   return (
     <div className="cart-items">
       {dataState?.cart &&
@@ -82,8 +89,23 @@ export const CartItemsRender = () => {
                   >
                     <Button title="Remove from Cart" />
                   </div>
-                  <div className="cart-item-remove-btn">
-                    <Button title="Add to Wishlist" />
+                  <div
+                    className="cart-item-remove-btn"
+                    onClick={() => {
+                      if (isItemPresentInWishlist(dataState, id)) {
+                        navigate("/wishlist");
+                      } else {
+                        addToWishlistHandler(dispatchData, cartItem);
+                      }
+                    }}
+                  >
+                    <Button
+                      title={
+                        isItemPresentInWishlist(dataState, id)
+                          ? "Go to Wishlist"
+                          : "Add to Wishlist"
+                      }
+                    />
                   </div>
                 </div>
               </div>

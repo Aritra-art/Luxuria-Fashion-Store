@@ -6,3 +6,7 @@
   width: 100%;
   justify-content: space-around;
 }
+.wishlist-header {
+  text-align: center;
+  letter-spacing: 2.5px;
+}

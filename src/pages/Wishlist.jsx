@@ -7,9 +7,11 @@ export const Wishlist = () => {
   const { dataState } = useContext(DataContext);
 
   return (
-    <div className="wishlist-container">
-      <h2>My Wishlist</h2>
-      {dataState?.wishlist && <ProductCard data={dataState?.wishlist} />}
+    <div>
+      <h2 className="wishlist-header">My Wishlist</h2>
+      <div className="wishlist-container">
+        {dataState?.wishlist && <ProductCard data={dataState?.wishlist} />}
+      </div>
     </div>
   );
 };
