@@ -12,6 +12,8 @@ export const dataReducer = (dataState, action) => {
       return { ...dataState, products: action.payload, isLoading: false };
     case "SET_CART_ITEMS":
       return { ...dataState, cart: action.payload };
+    case "SET_WISHLIST_ITEMS":
+      return { ...dataState, wishlist: action.payload };
     default:
       console.log("something went wrong");
   }

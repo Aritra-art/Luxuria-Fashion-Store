@@ -46,7 +46,9 @@ export const Navbar = () => {
           >
             <i className="fas fa-heart"></i>
             <span className="link-text">Wishlist</span>
-            <span className="wishlist-count">0</span>
+            <span className="wishlist-count">
+              {dataState?.wishlist?.length}
+            </span>
           </NavLink>
         </li>
         <li className="nav-item">

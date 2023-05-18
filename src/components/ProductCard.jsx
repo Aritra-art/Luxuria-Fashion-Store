@@ -9,6 +9,11 @@ import {
   isItemPresentInCart,
 } from "../utils/addToCartHandler";
 import { DataContext } from "../context/DataContext";
+import {
+  addToWishlistHandler,
+  isItemPresentInWishlist,
+} from "../utils/addToWishlistHandler";
+import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
 
 export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
   const { dispatchFilter } = useContext(FilterContext);
@@ -54,8 +59,25 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 {type.toLowerCase() === "best seller" && (
                   <div className="card-trending-tag">Trending</div>
                 )}
-                <div className="heart-icon">
-                  <i class="fa-sharp fa-regular fa-heart"></i>
+                <div
+                  className="heart-icon"
+                  onClick={() => {
+                    if (!authState?.isLoggedin) {
+                      alert("please login ");
+                    } else {
+                      if (!isItemPresentInWishlist(dataState, id)) {
+                        addToWishlistHandler(dispatchData, item);
+                      } else {
+                        removeFromWishlistHandler(dispatchData, id);
+                      }
+                    }
+                  }}
+                >
+                  {isItemPresentInWishlist(dataState, id) ? (
+                    <i class="fas fa-heart solid-heart"></i>
+                  ) : (
+                    <i class="fa-sharp fa-regular fa-heart"></i>
+                  )}
                 </div>
                 <div className="card-size">{size}</div>
                 <div className="card-title-div">

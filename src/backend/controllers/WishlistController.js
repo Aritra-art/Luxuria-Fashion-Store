@@ -85,7 +85,7 @@ export const removeItemFromWishlistHandler = function (schema, request) {
     }
     let userWishlist = schema.users.findBy({ _id: userId }).wishlist;
     const productId = request.params.productId;
-    userWishlist = userWishlist.filter((item) => item._id !== productId);
+    userWishlist = userWishlist.filter((item) => item.id !== productId);
     this.db.users.update({ _id: userId }, { wishlist: userWishlist });
     return new Response(200, {}, { wishlist: userWishlist });
   } catch (error) {
