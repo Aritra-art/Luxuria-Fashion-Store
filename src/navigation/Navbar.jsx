@@ -17,6 +17,8 @@ export const Navbar = () => {
     borderRadius: "5px",
     border: "2px solid black",
     outline: "none",
+    letterSpacing: "2px",
+    fontSize: "em",
   };
   return (
     <nav className="navbar">
@@ -39,8 +41,7 @@ export const Navbar = () => {
                   type: "SET_SEARCH_FILTER",
                   payload: e.target.value,
                 });
-                filterState?.searchFilter?.trim() !== "" &&
-                  navigate("/products");
+                navigate("/products");
               }}
             />
             <span></span>

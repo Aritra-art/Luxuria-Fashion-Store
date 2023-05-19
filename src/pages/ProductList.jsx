@@ -10,6 +10,11 @@ export const ProductList = () => {
   const { dataState } = useContext(DataContext);
   const { filterState } = useContext(FilterContext);
   let filteredArr = dataState?.products && dataState?.products;
+  filteredArr = filteredArr.filter(({ title }) =>
+    title
+      .toLowerCase()
+      ?.includes(filterState?.searchFilter?.toLowerCase()?.trim())
+  );
   filteredArr = filteredArr.filter(
     ({ discountPercentage, price }) =>
       Number(price - Math.round((discountPercentage / 100) * price)) <=
@@ -85,9 +90,15 @@ export const ProductList = () => {
             All Products
             <small className="productlist-length">[{filteredArr.length}]</small>
           </h1>
-          <div className="productlist-products">
-            {dataState?.products && <ProductCard data={filteredArr} />}
-          </div>
+          {filteredArr.length > 0 ? (
+            <div className="productlist-products">
+              {dataState?.products && <ProductCard data={filteredArr} />}
+            </div>
+          ) : (
+            <div style={{ textAlign: "center" }}>
+              <b>No Products Found</b>
+            </div>
+          )}
         </div>
       </div>
     </>
