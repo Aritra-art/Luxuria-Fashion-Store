@@ -4,6 +4,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px 30px 20px 30px;
+  position: sticky;
+  width: 96;
+  top: 0px;
+  z-index: 9999;
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
 }
 
 .logo-link {
