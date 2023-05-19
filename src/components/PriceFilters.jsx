@@ -17,19 +17,21 @@ export const PriceFilters = () => {
     { labelName: "High-to-Low", value: "htl" },
   ];
   return (
-    <div
-      style={priceFilterStyle}
-      value={filterState?.sortPriceFilter}
-      onChange={(e) =>
-        dispatchFilter({
-          type: "SET_SORT_PRICE",
-          payload: e.target.value,
-        })
-      }
-    >
+    <div style={priceFilterStyle}>
       {sortArr.map(({ labelName, value }) => (
         <label style={priceLabelStyle} key={value}>
-          <input name="pricefilter" type="radio" value={value} />
+          <input
+            name="pricefilter"
+            type="radio"
+            value={value}
+            checked={filterState?.sortPriceFilter === value}
+            onChange={(e) =>
+              dispatchFilter({
+                type: "SET_SORT_PRICE",
+                payload: e.target.value,
+              })
+            }
+          />
           {labelName}
         </label>
       ))}
