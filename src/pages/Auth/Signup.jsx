@@ -7,7 +7,7 @@ export const Signup = () => {
   const { signupUser, authState } = useContext(AuthContext);
   const navigate = useNavigate();
   const [signup, setSignUp] = useState({
-    fName: "",
+    firstName: "",
     lName: "",
     email: "",
     password: "",
@@ -27,8 +27,8 @@ export const Signup = () => {
         ...signup,
         passErr: "",
       }));
-      const { fName, lName, email, password, cPass } = signup;
-      signupUser({ fName, lName, email, password, cPass });
+      const { firstName, lName, email, password, cPass } = signup;
+      signupUser({ firstName, lName, email, password, cPass });
     } else {
       setSignUp((signup) => ({
         ...signup,
@@ -60,11 +60,11 @@ export const Signup = () => {
               First Name
               <input
                 required={true}
-                name="fName"
+                name="firstName"
                 placeholder="First Name"
                 type="text"
                 className="signup-content-input"
-                value={signup.fName}
+                value={signup.firstName}
                 onChange={handleInputChange}
               />
             </label>
