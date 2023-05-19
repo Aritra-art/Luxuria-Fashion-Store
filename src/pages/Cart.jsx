@@ -28,43 +28,65 @@ export const Cart = () => {
     flexWrap: "wrap",
     justifyContent: "space-around",
   };
-  return (
-    <>
-      <h2 className="wishlist-header">My Cart</h2>
-      <div className="cart-container-layout">
-        <div className="cart-container-items">
-          <CartItemsRender />
-        </div>
-        <div className="cart-container-price">
-          <h2 className="cart-container-price-header">Cart Price Details</h2>
-          <hr />
-          <CartDetails data={dataState?.cart} />
-          <div>
-            <b style={{ fontSize: "1.4rem" }}>
-              <small>
-                You are saving{" "}
-                <span style={{ color: "#16a34a" }}>
-                  ₹{discountedAmount(dataState)}
-                </span>{" "}
-                in this order
-              </small>
-            </b>
-          </div>
-          <hr />
-          <div style={divStyle}>
-            <b style={{ fontSize: "1.5rem" }}>Total Price</b>{" "}
-            <span>
-              <b style={{ fontSize: "1.4rem" }}>₹{totalCartPrice(dataState)}</b>
+  if (dataState?.cart?.length === 0) {
+    return (
+      <div style={{ width: "100%", height: "100vh" }}>
+        <h2 className="wishlist-header">My Cart</h2>
+        <h3 style={{ textAlign: "center" }}>
+          <b>
+            Cart is Empty{" "}
+            <span role="img" aria-label="annoyed">
+              😐
+            </span>{" "}
+            why don't you add some item{" "}
+            <span role="img" aria-label="annoyed-face">
+              🙄
             </span>
+          </b>
+        </h3>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <h2 className="wishlist-header">My Cart</h2>
+        <div className="cart-container-layout">
+          <div className="cart-container-items">
+            <CartItemsRender />
           </div>
-          <div
-            className="cart-container-checkoutbtn"
-            onClick={() => navigate("/checkout")}
-          >
-            <Button title="Proceed to checkout" />
+          <div className="cart-container-price">
+            <h2 className="cart-container-price-header">Cart Price Details</h2>
+            <hr />
+            <CartDetails data={dataState?.cart} />
+            <div>
+              <b style={{ fontSize: "1.4rem" }}>
+                <small>
+                  You are saving{" "}
+                  <span style={{ color: "#16a34a" }}>
+                    ₹{discountedAmount(dataState)}
+                  </span>{" "}
+                  in this order
+                </small>
+              </b>
+            </div>
+            <hr />
+            <div style={divStyle}>
+              <b style={{ fontSize: "1.5rem" }}>Total Price</b>{" "}
+              <span>
+                <b style={{ fontSize: "1.4rem" }}>
+                  ₹{totalCartPrice(dataState)}
+                </b>
+              </span>
+            </div>
+            <div
+              className="cart-container-checkoutbtn"
+              onClick={() => navigate("/checkout")}
+            >
+              <Button title="Proceed to checkout" />
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };

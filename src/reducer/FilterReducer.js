@@ -36,6 +36,8 @@ export const filterReducer = (filterState, { type, payload }) => {
       return { ...filterState, ratingFilter: payload };
     case "SET_SORT_PRICE":
       return { ...filterState, sortPriceFilter: payload };
+    case "SET_SEARCH_FILTER":
+      return { ...filterState, searchFilter: payload };
     case "CLEAR_ALL_FILTERS":
       return {
         priceRange: 10000,
@@ -45,6 +47,7 @@ export const filterReducer = (filterState, { type, payload }) => {
         brandFilter: [],
         ratingFilter: payload,
         sortPriceFilter: payload,
+        searchFilter: "",
       };
     default:
       console.log("Something went wrong");

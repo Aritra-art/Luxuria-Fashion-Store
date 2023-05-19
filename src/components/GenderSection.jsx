@@ -21,10 +21,6 @@ export const GenderSection = () => {
                   key={_id}
                   onClick={() => {
                     dispatchFilter({
-                      type: "CLEAR_ALL_FILTERS",
-                      payload: "",
-                    });
-                    dispatchFilter({
                       type: "SET_CATEGORY_FILTER",
                       payload: categoryName,
                     });

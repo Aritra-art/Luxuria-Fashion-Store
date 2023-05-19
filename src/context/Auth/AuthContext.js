@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 import { authReducer } from "../../reducer/AuthReducer";
 import { postSignupData } from "../../utils/Auth/postSignupData";
 import { postLoginData } from "../../utils/Auth/postLoginData";
+import { useNavigate } from "react-router";
 
 export const AuthContext = createContext();
 
@@ -11,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
     userDetails: {},
     // userToken: "",
   });
+  const navigate = useNavigate();
   const signupUser = async (signupData) => {
     try {
       const { status, data } = await postSignupData(signupData);
@@ -19,6 +21,7 @@ export const AuthContextProvider = ({ children }) => {
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({ type: "SET_USER", payload: data?.createdUser });
         alert("signup successfull");
+        navigate("/products");
       }
     } catch (error) {
       dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
@@ -32,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
       if (response?.status === 200) {
         localStorage.setItem("userToken", response?.data?.encodedToken);
         alert("login successfull");
+        navigate("/products");
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({
           type: "SET_USER",

@@ -1,12 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/Auth/AuthContext";
 import { DataContext } from "../context/DataContext";
+import { FilterContext } from "../context/FilterContext";
 
 export const Navbar = () => {
   const { authState } = useContext(AuthContext);
-  const { dataState } = useContext(DataContext);
+  const { dataState, dispatchData } = useContext(DataContext);
+  const { filterState, dispatchFilter } = useContext(FilterContext);
+  const navigate = useNavigate();
+
+  const inputStyle = {
+    padding: "6px 12px",
+    width: "90%",
+    borderRadius: "5px",
+    border: "2px solid black",
+    outline: "none",
+  };
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -15,17 +26,43 @@ export const Navbar = () => {
         </NavLink>
       </div>
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <NavLink
-            to="/search"
-            className={({ isActive }) =>
-              isActive ? "nav-link navlink-active" : "nav-link"
-            }
+        {dataState?.showSearch && (
+          <li className="nav-item-hoverles">
+            {" "}
+            <input
+              type="text"
+              placeholder="SEARCH"
+              style={inputStyle}
+              value={filterState?.searchFilter}
+              onChange={(e) => {
+                dispatchFilter({
+                  type: "SET_SEARCH_FILTER",
+                  payload: e.target.value,
+                });
+                filterState?.searchFilter?.trim() !== "" &&
+                  navigate("/products");
+              }}
+            />
+            <span></span>
+          </li>
+        )}
+
+        {!dataState?.showSearch && (
+          <li
+            className="nav-item nav-item-pointer"
+            onClick={() => {
+              dispatchData({
+                type: "SET_SHOWSEARCH_TRUE",
+                payload: true,
+              });
+              navigate("/products");
+            }}
           >
             <i className="fas fa-magnifying-glass"></i>
             <span className="link-text">Search</span>
-          </NavLink>
-        </li>
+          </li>
+        )}
+
         <li className="nav-item">
           <NavLink
             to="/products"

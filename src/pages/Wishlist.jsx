@@ -6,12 +6,21 @@ import { ProductCard } from "../components/ProductCard";
 export const Wishlist = () => {
   const { dataState } = useContext(DataContext);
 
-  return (
-    <div>
-      <h2 className="wishlist-header">My Wishlist</h2>
-      <div className="wishlist-container">
-        {dataState?.wishlist && <ProductCard data={dataState?.wishlist} />}
+  if (dataState?.wishlist?.length === 0) {
+    return (
+      <div style={{ width: "100%", height: "100vh" }}>
+        <h2 className="wishlist-header">My Wishlist</h2>
+        <h3 style={{ textAlign: "center" }}>Wishlist is Empty</h3>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <h2 className="wishlist-header">My Wishlist</h2>
+        <div className="wishlist-container">
+          {dataState?.wishlist && <ProductCard data={dataState?.wishlist} />}
+        </div>
+      </div>
+    );
+  }
 };

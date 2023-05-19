@@ -26,6 +26,9 @@
 .nav-item {
   margin-right: 25px;
 }
+.nav-item-pointer {
+  cursor: pointer;
+}
 .nav-item-hoverles {
   margin-right: 25px;
 }

@@ -33,7 +33,7 @@ export const ImageSlider = () => {
   return (
     <div className="slider-container">
       <i
-        class="fas fa-arrow-left arrow-left"
+        className="fas fa-arrow-left arrow-left"
         onClick={() => handleSlider("left")}
       ></i>
       <div className="wrapper">
@@ -48,7 +48,6 @@ export const ImageSlider = () => {
                 className="slider-image-link"
                 to="/products"
                 onClick={() => {
-                  dispatchFilter({ type: "CLEAR_ALL_FILTERS", payload: "" });
                   dispatchFilter({
                     type: "SET_CATEGORY_FILTER",
                     payload: category,
@@ -62,7 +61,7 @@ export const ImageSlider = () => {
         })}
       </div>
       <i
-        class="fas fa-arrow-right arrow-right"
+        className="fas fa-arrow-right arrow-right"
         onClick={() => handleSlider("right")}
       ></i>
     </div>

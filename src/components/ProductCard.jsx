@@ -44,10 +44,6 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 onClick={() => {
                   if (fromHomePage) {
                     dispatchFilter({
-                      type: "CLEAR_ALL_FILTERS",
-                      payload: "",
-                    });
-                    dispatchFilter({
                       type: "SET_TYPE_FILTER",
                       payload: typeSelection,
                     });

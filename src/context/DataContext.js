@@ -7,6 +7,7 @@ export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [dataState, dispatchData] = useReducer(dataReducer, {
     isLoading: false,
+    showSearch: false,
     products: [],
     categories: [],
     types: [],

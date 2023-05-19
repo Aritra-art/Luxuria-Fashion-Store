@@ -11,6 +11,7 @@ import { Signup } from "./pages/Auth/Signup";
 import { Login } from "./pages/Auth/Login";
 import { Logout } from "./pages/Logout";
 import { Checkout } from "./pages/Checkout";
+import { RequireAuth } from "./utils/Auth/RequireAuth";
 
 function App() {
   return (
@@ -23,9 +24,30 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:productId" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequireAuth>
+              <Wishlist />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <Checkout />
+            </RequireAuth>
+          }
+        />
       </Routes>
       <Footer />
     </div>

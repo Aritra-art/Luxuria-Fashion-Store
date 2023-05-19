@@ -5,6 +5,7 @@ export const FilterContext = createContext();
 export const FilterContextProvider = ({ children }) => {
   const [filterState, dispatchFilter] = useReducer(filterReducer, {
     priceRange: 10000,
+    searchFilter: "",
     categoryFilter: [],
     typeFilter: [],
     sizeFilter: [],
@@ -12,7 +13,7 @@ export const FilterContextProvider = ({ children }) => {
     ratingFilter: "",
     sortPriceFilter: "",
   });
-  // console.log(filterState.ratingFilter);
+  console.log(filterState.searchFilter);
   const value = { filterState, dispatchFilter };
   return (
     <FilterContext.Provider value={value}>{children}</FilterContext.Provider>
