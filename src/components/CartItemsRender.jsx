@@ -10,6 +10,8 @@ import {
 } from "../utils/addToWishlistHandler";
 import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
 import { useNavigate } from "react-router";
+import { ToastContainer } from "react-toastify";
+import { successToastMsg } from "./ProductCard";
 
 export const CartItemsRender = () => {
   const { dataState, dispatchData } = useContext(DataContext);
@@ -73,6 +75,7 @@ export const CartItemsRender = () => {
                 <span
                   onClick={() => {
                     if (qty === 1) {
+                      successToastMsg("Product Removed from Cart ");
                       removeFromCartHandler(dispatchData, id);
                     } else {
                       handleQuantityChangeCart(dispatchData, id, "decrement");
@@ -84,7 +87,10 @@ export const CartItemsRender = () => {
 
                 <div className="cart-item-btns">
                   <div
-                    onClick={() => removeFromCartHandler(dispatchData, id)}
+                    onClick={() => {
+                      successToastMsg("Product Removed from Cart ");
+                      removeFromCartHandler(dispatchData, id);
+                    }}
                     className="cart-item-remove-btn"
                   >
                     <Button title="Remove from Cart" />
@@ -96,6 +102,7 @@ export const CartItemsRender = () => {
                         navigate("/wishlist");
                       } else {
                         addToWishlistHandler(dispatchData, cartItem);
+                        successToastMsg("Product Added to Wishlist ");
                       }
                     }}
                   >
@@ -106,6 +113,7 @@ export const CartItemsRender = () => {
                           : "Add to Wishlist"
                       }
                     />
+                    <ToastContainer />
                   </div>
                 </div>
               </div>

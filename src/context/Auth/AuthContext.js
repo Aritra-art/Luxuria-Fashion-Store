@@ -3,6 +3,7 @@ import { authReducer } from "../../reducer/AuthReducer";
 import { postSignupData } from "../../utils/Auth/postSignupData";
 import { postLoginData } from "../../utils/Auth/postLoginData";
 import { useNavigate } from "react-router";
+import { successToastMsg } from "../../components/ProductCard";
 
 export const AuthContext = createContext();
 
@@ -20,8 +21,8 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.setItem("userToken", data?.encodedToken);
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({ type: "SET_USER", payload: data?.createdUser });
-        alert("signup successfull");
         navigate("/products");
+        successToastMsg("Signup Successfull");
       }
     } catch (error) {
       dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
@@ -34,8 +35,8 @@ export const AuthContextProvider = ({ children }) => {
       const response = await postLoginData(loginData);
       if (response?.status === 200) {
         localStorage.setItem("userToken", response?.data?.encodedToken);
-        alert("login successfull");
         navigate("/products");
+        successToastMsg("Login Successfull");
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({
           type: "SET_USER",

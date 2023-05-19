@@ -17,6 +17,8 @@ import {
   isItemPresentInWishlist,
 } from "../utils/addToWishlistHandler";
 import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
+import { ToastContainer } from "react-toastify";
+import { failToastMsg, successToastMsg } from "../components/ProductCard";
 
 export const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
@@ -103,10 +105,14 @@ export const SingleProduct = () => {
                 className="single-product-card-btn"
                 onClick={() => {
                   if (!authState?.isLoggedin) {
-                    alert("please login to continue");
+                    failToastMsg("please login to continue");
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 2500);
                   } else {
                     if (!isItemPresentInCart(dataState, singleProduct?.id)) {
                       addToCartHandler(singleProduct, dispatchData);
+                      successToastMsg("Product Added to Cart");
                     } else {
                       navigate("/cart");
                     }
@@ -129,11 +135,13 @@ export const SingleProduct = () => {
                     alert("please login to continue");
                   } else {
                     if (isItemPresentInWishlist(dataState, singleProduct?.id)) {
+                      successToastMsg("Product Removed from Wishlist");
                       removeFromWishlistHandler(
                         dispatchData,
                         singleProduct?.id
                       );
                     } else {
+                      successToastMsg("Product Added to Wishlist");
                       addToWishlistHandler(dispatchData, singleProduct);
                     }
                   }
@@ -151,6 +159,7 @@ export const SingleProduct = () => {
                   </span>
                 )}
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>

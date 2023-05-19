@@ -14,6 +14,26 @@ import {
   isItemPresentInWishlist,
 } from "../utils/addToWishlistHandler";
 import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export const successToastMsg = (msg) => {
+  toast.success(msg, {
+    className: "success-toast-message",
+    theme: "dark",
+    autoClose: 1500,
+    closeOnClick: true,
+  });
+};
+
+export const failToastMsg = (msg) => {
+  toast.error(msg, {
+    className: "success-toast-message",
+    theme: "dark",
+    autoClose: 1500,
+    closeOnClick: true,
+  });
+};
 
 export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
   const { dispatchFilter } = useContext(FilterContext);
@@ -66,11 +86,16 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   className="heart-icon"
                   onClick={() => {
                     if (!authState?.isLoggedin) {
-                      alert("please login ");
+                      failToastMsg("please login to continue");
+                      setTimeout(() => {
+                        navigate("/login");
+                      }, 2500);
                     } else {
                       if (!isItemPresentInWishlist(dataState, id)) {
+                        successToastMsg("Product Added to Wishlist");
                         addToWishlistHandler(dispatchData, item);
                       } else {
+                        successToastMsg("Product Removed from Wishlist");
                         removeFromWishlistHandler(dispatchData, id);
                       }
                     }
@@ -108,9 +133,13 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 className="card-btn"
                 onClick={() => {
                   if (!authState?.isLoggedin) {
-                    alert("please login to continue");
+                    failToastMsg("please login to continue");
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 2500);
                   } else {
                     if (!isItemPresentInCart(dataState, id)) {
+                      successToastMsg("Product Added to Cart");
                       addToCartHandler(item, dispatchData);
                     } else {
                       navigate("/cart");
@@ -126,6 +155,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                       : "Add to Cart"
                   }
                 />
+                <ToastContainer />
               </div>
             </div>
           );

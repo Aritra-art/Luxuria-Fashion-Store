@@ -14,12 +14,6 @@ export const Signup = () => {
     cPass: "",
     passErr: "",
   });
-
-  // useEffect(() => {
-  //   if (authState?.isLoggedin) {
-  //     navigate("/products");
-  //   }
-  // });
   const signupSubmitHandler = (e) => {
     e.preventDefault();
     if (signup.password === signup.cPass) {
