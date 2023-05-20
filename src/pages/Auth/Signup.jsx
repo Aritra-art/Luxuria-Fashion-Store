@@ -2,6 +2,7 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/Auth/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 export const Signup = () => {
   const { signupUser, authState } = useContext(AuthContext);
@@ -131,6 +132,7 @@ export const Signup = () => {
               </NavLink>
             </small>
           </form>
+          <ToastContainer />
         </main>
       </div>
     </>

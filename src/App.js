@@ -9,9 +9,9 @@ import { Navbar } from "./navigation/Navbar";
 import { Footer } from "./components/Footer";
 import { Signup } from "./pages/Auth/Signup";
 import { Login } from "./pages/Auth/Login";
-import { Logout } from "./pages/Logout";
 import { Checkout } from "./pages/Checkout";
 import { RequireAuth } from "./utils/Auth/RequireAuth";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
@@ -21,7 +21,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/logout" element={<Logout />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:productId" element={<SingleProduct />} />
         <Route
@@ -48,6 +47,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </div>

@@ -21,8 +21,10 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.setItem("userToken", data?.encodedToken);
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({ type: "SET_USER", payload: data?.createdUser });
-        navigate("/products");
         successToastMsg("Signup Successfull");
+        setTimeout(() => {
+          navigate("/products");
+        }, 2500);
       }
     } catch (error) {
       dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
@@ -35,8 +37,11 @@ export const AuthContextProvider = ({ children }) => {
       const response = await postLoginData(loginData);
       if (response?.status === 200) {
         localStorage.setItem("userToken", response?.data?.encodedToken);
-        navigate("/products");
         successToastMsg("Login Successfull");
+        setTimeout(() => {
+          navigate("/products");
+        }, 2500);
+
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });
         dispatchAuth({
           type: "SET_USER",

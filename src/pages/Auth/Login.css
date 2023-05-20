@@ -9,11 +9,13 @@
 .login-container-image {
   /* border: 1px solid red; */
   width: 60%;
+  height: 100vh;
 }
 .login-container-form {
   width: 39%;
   border-left: 3px solid black;
   text-align: center;
+  height: 100vh;
 }
 .login-container-form-header {
   text-transform: uppercase;

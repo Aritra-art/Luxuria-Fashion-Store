@@ -1,0 +1,35 @@
+.profile-container-layout {
+  width: 100%;
+  height: 100vh;
+}
+.profile-container {
+  border: 1px solid;
+  width: 80%;
+  border-radius: 6px;
+  height: 80vh;
+  margin: 30px auto;
+  padding: 0px 10px 10px 10px;
+}
+.profile-content-header {
+  text-align: center;
+}
+.user-detail {
+  margin-left: 10px;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.user-detail-email {
+  margin-left: 10px;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+.user-detail-placeholder {
+  font-size: 1.2rem;
+}
+.address-container {
+  margin-top: 20px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 4px;
+}

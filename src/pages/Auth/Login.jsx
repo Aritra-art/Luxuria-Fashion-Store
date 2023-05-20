@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Login.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/Auth/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 export const Login = () => {
   const [login, setLogin] = useState({
@@ -99,6 +100,7 @@ export const Login = () => {
               </NavLink>
             </small>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </>
