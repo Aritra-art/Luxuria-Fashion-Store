@@ -23,7 +23,7 @@ export const AuthContextProvider = ({ children }) => {
         dispatchAuth({ type: "SET_USER", payload: data?.createdUser });
         successToastMsg("Signup Successfull");
         setTimeout(() => {
-          navigate("/products");
+          navigate(-1);
         }, 2500);
       }
     } catch (error) {
@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.setItem("userToken", response?.data?.encodedToken);
         successToastMsg("Login Successfull");
         setTimeout(() => {
-          navigate("/products");
+          navigate(-1);
         }, 2500);
 
         dispatchAuth({ type: "SET_LOGIN_TRUE", payload: true });

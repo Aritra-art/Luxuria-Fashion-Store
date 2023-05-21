@@ -26,7 +26,7 @@ export const Cart = () => {
   const divStyle = {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   };
   if (dataState?.cart?.length === 0) {
     return (
@@ -71,9 +71,11 @@ export const Cart = () => {
             </div>
             <hr />
             <div style={divStyle}>
-              <b style={{ fontSize: "1.5rem" }}>Total Price</b>{" "}
+              <b style={{ fontSize: "1.5rem", marginLeft: "20px" }}>
+                Total Price
+              </b>{" "}
               <span>
-                <b style={{ fontSize: "1.4rem" }}>
+                <b style={{ fontSize: "1.4rem", marginRight: "20px" }}>
                   ₹{totalCartPrice(dataState)}
                 </b>
               </span>

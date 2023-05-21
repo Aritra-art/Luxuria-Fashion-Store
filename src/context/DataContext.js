@@ -100,7 +100,7 @@ export const DataContextProvider = ({ children }) => {
     authState?.isLoggedin && setItems();
   }, [dispatchData, authState?.isLoggedin]);
 
-  console.log(dataState);
+  // console.log(dataState);
 
   const value = { dataState, dispatchData };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

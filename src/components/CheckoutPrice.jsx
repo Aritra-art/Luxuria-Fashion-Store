@@ -43,7 +43,10 @@ export const CheckoutPrice = () => {
           </p>
           <p className="checkout__item">
             Discount
-            <span className="checkout__discount">
+            <span
+              className="checkout__discount"
+              style={{ color: "rgb(22, 163, 74)", fontWeight: "bold" }}
+            >
               -₹ {discountedAmount(dataState)}
             </span>
           </p>

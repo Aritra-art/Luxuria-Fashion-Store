@@ -14,17 +14,18 @@ export const CartDetails = ({ data }) => {
     padding: "10px 0px",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   };
   const titleStyle = {
     textTransform: "uppercase",
     letterSpacing: "2px",
-    marginRight: "5px",
     fontSize: "1.5rem",
+    marginLeft: "20px",
   };
   const priceStyle = {
     fontWeight: "bold",
     fontSize: "1.5rem",
+    marginRight: "20px",
   };
   return (
     <ol style={orderListStyle}>

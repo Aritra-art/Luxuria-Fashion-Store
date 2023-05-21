@@ -9,6 +9,11 @@
 .checkout-address {
   width: 50%;
   border: 1px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 .checkout-price {
   width: 49%;
