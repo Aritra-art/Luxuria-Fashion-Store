@@ -3,7 +3,7 @@
   height: 100%;
 }
 .profile-container {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 80%;
   border-radius: 6px;
   height: fit-content;
@@ -29,8 +29,7 @@
 }
 .address-container {
   margin-top: 20px;
-  border: 1px solid;
-  padding: 10px;
+  /* border: 1px solid; */
   border-radius: 4px;
 }
 .address-section {
@@ -38,7 +37,7 @@
   width: fit-content;
   height: fit-content;
   padding: 10px;
-  margin: 10px 0px;
+  margin: 30px 0px;
   border-radius: 5px;
   background-color: rgb(244, 241, 241);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

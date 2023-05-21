@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
+import "./AddressForm.css";
 
 export const AddressForm = ({ setAddAddress }) => {
   const { dispatchData } = useContext(DataContext);
@@ -27,10 +28,12 @@ export const AddressForm = ({ setAddAddress }) => {
 
   return (
     <>
-      <form onSubmit={addressHandlerForm}>
-        <label>
+      <form onSubmit={addressHandlerForm} className="address-form-container">
+        <label className="address-form-container-label">
           House Number
           <input
+            placeholder="2877 Arthur Avenue"
+            className="address-form-container-input"
             type="text"
             required
             name="houseNumber"
@@ -38,9 +41,11 @@ export const AddressForm = ({ setAddAddress }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Mobile Number
           <input
+            placeholder="+91-855-592-2564"
+            className="address-form-container-input"
             type="number"
             required
             value={addressForm.mobileNumber}
@@ -48,9 +53,11 @@ export const AddressForm = ({ setAddAddress }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Area
           <input
+            placeholder="Jamnagar"
+            className="address-form-container-input"
             type="text"
             required
             name="area"
@@ -58,9 +65,11 @@ export const AddressForm = ({ setAddAddress }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           City
           <input
+            placeholder="Freeport"
+            className="address-form-container-input"
             type="text"
             required
             name="city"
@@ -68,9 +77,11 @@ export const AddressForm = ({ setAddAddress }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Pincode
           <input
+            placeholder="566712"
+            className="address-form-container-input"
             type="number"
             required
             name="pincode"
@@ -78,7 +89,9 @@ export const AddressForm = ({ setAddAddress }) => {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">Add Address</button>
+        <button type="submit" className="address-form-container-btn">
+          Add Address
+        </button>
       </form>
     </>
   );

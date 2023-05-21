@@ -13,6 +13,16 @@ export const Profile = () => {
   const [showAdd, setShowAdd] = useState(false);
   const [addAddress, setAddAddress] = useState(false);
 
+  const btnStyle = {
+    fontSize: "1.2rem",
+    margin: "0px 10px 0px 0px",
+    cursor: "pointer",
+    padding: "4px 8px",
+    border: "1px solid black",
+    borderRadius: "4px",
+    background: "white",
+  };
+
   return (
     <>
       <div className="profile-container-layout">
@@ -88,6 +98,7 @@ export const Profile = () => {
                           Pincode: <b className="address-line">{pincode}</b>
                         </p>
                         <button
+                          style={btnStyle}
                           onClick={() => {
                             dispatchData({
                               type: "EDIT_TODO",
@@ -98,6 +109,7 @@ export const Profile = () => {
                           Edit
                         </button>
                         <button
+                          style={btnStyle}
                           onClick={() => {
                             dispatchData({
                               type: "DELETE_USER_ADDRESS",

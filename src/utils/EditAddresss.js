@@ -19,10 +19,11 @@ export const EditAddress = ({ editTodoId }) => {
   };
   return (
     <>
-      <form>
-        <label>
+      <form className="address-form-container">
+        <label className="address-form-container-label">
           House Number
           <input
+            className="address-form-container-input"
             type="text"
             required
             name="houseNumber"
@@ -30,9 +31,10 @@ export const EditAddress = ({ editTodoId }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Mobile Number
           <input
+            className="address-form-container-input"
             type="number"
             required
             value={editAddress.mobileNumber}
@@ -40,9 +42,10 @@ export const EditAddress = ({ editTodoId }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Area
           <input
+            className="address-form-container-input"
             type="text"
             required
             name="area"
@@ -50,9 +53,10 @@ export const EditAddress = ({ editTodoId }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           City
           <input
+            className="address-form-container-input"
             type="text"
             required
             name="city"
@@ -60,9 +64,10 @@ export const EditAddress = ({ editTodoId }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className="address-form-container-label">
           Pincode
           <input
+            className="address-form-container-input"
             type="number"
             required
             name="pincode"
@@ -71,6 +76,7 @@ export const EditAddress = ({ editTodoId }) => {
           />
         </label>
         <button
+          className="address-form-container-btn "
           type="submit"
           onClick={() => {
             dispatchData({
@@ -82,6 +88,7 @@ export const EditAddress = ({ editTodoId }) => {
           Edit Address
         </button>
         <button
+          className="address-form-container-btn "
           type="submit"
           onClick={() => {
             dispatchData({
