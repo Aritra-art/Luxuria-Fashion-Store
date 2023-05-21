@@ -2,17 +2,17 @@ import { useContext, useState } from "react";
 import "./Profile.css";
 import { AuthContext } from "../context/Auth/AuthContext";
 import { Button } from "../components/Button";
-import { useNavigate } from "react-router";
 import { DataContext } from "../context/DataContext";
 import { ToastContainer } from "react-toastify";
-import { successToastMsg } from "../components/ProductCard";
+import { AddressForm } from "../utils/AddressForm";
+import { EditAddress } from "../utils/EditAddresss";
 
 export const Profile = () => {
   const { authState, dispatchAuth } = useContext(AuthContext);
-  const { dispatchData } = useContext(DataContext);
+  const { dataState, dispatchData } = useContext(DataContext);
   const [showAdd, setShowAdd] = useState(false);
-  const navigate = useNavigate();
-  console.log(authState?.userDetails);
+  const [addAddress, setAddAddress] = useState(false);
+
   return (
     <>
       <div className="profile-container-layout">
@@ -39,19 +39,83 @@ export const Profile = () => {
               {authState?.userDetails?.email}
             </span>
           </p>
-          <div onClick={() => setShowAdd((showAdd) => !showAdd)}>
-            <Button title={showAdd ? "Hide Address" : "Show Address"} />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <div onClick={() => setAddAddress((addAddress) => !addAddress)}>
+              <Button title={addAddress ? "Cancel" : "Add Address"} />
+            </div>
+            <div onClick={() => setShowAdd((showAdd) => !showAdd)}>
+              <Button
+                title={showAdd ? "Hide Address" : "Show All Address(es)"}
+              />
+            </div>
           </div>
+          {addAddress && <AddressForm setAddAddress={setAddAddress} />}
+
           {showAdd && (
-            <div className="address-container">Address Container</div>
+            <div className="address-container">
+              {dataState?.address?.length === 0 && <h3>No Address Added</h3>}
+              {dataState?.address?.length > 0 &&
+                dataState?.address.map(
+                  ({
+                    id,
+                    houseNumber,
+                    mobileNumber,
+                    area,
+                    city,
+                    pincode,
+                    isEdit,
+                  }) => {
+                    return (
+                      <div key={id} className="address-section">
+                        <div>{isEdit && <EditAddress editTodoId={id} />}</div>
+
+                        <p>
+                          House Number:{" "}
+                          <b className="address-line">{houseNumber}</b>Mobile
+                          Number: <b className="address-line">{mobileNumber}</b>
+                        </p>
+                        <p>
+                          Area: <b className="address-line">{area}</b>City:{" "}
+                          <b className="address-line">{city}</b>
+                        </p>
+                        <p>
+                          Pincode: <b className="address-line">{pincode}</b>
+                        </p>
+                        <button
+                          onClick={() => {
+                            dispatchData({
+                              type: "EDIT_TODO",
+                              payload: id,
+                            });
+                          }}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => {
+                            dispatchData({
+                              type: "DELETE_USER_ADDRESS",
+                              payload: id,
+                            });
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    );
+                  }
+                )}
+            </div>
           )}
           <div
-            style={{ padding: "10px 0px 0px 0px" }}
+            style={{ padding: "10px 0px 0px 0px", width: "fit-content" }}
             onClick={() => {
-              successToastMsg("Logout Successfull");
-              setTimeout(() => {
-                navigate("/login");
-              }, 2500);
               localStorage.removeItem("userToken");
               dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
               dispatchAuth({ type: "SET_USER", payload: {} });

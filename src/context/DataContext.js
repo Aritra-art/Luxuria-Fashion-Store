@@ -4,6 +4,7 @@ import { dataReducer } from "../reducer/DataReducer";
 import { AuthContext } from "./Auth/AuthContext";
 import { getCartItems } from "../utils/getCartItems";
 import { getWishlistItems } from "../utils/getWishlistItems";
+import { userAddress } from "../utils/userAddress";
 
 export const DataContext = createContext();
 
@@ -17,7 +18,7 @@ export const DataContextProvider = ({ children }) => {
     types: [],
     cart: [],
     wishlist: [],
-    address: [],
+    address: userAddress(),
   });
   const encodedToken = localStorage.getItem("userToken");
   const getCategories = async () => {
@@ -98,6 +99,8 @@ export const DataContextProvider = ({ children }) => {
     !authState?.isLoggedin && clearItems();
     authState?.isLoggedin && setItems();
   }, [dispatchData, authState?.isLoggedin]);
+
+  console.log(dataState);
 
   const value = { dataState, dispatchData };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

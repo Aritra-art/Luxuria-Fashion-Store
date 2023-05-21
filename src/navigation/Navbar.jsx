@@ -105,7 +105,7 @@ export const Navbar = () => {
           className={authState?.isLoggedin ? "nav-item-hoverles" : "nav-item"}
         >
           <NavLink
-            to={authState?.isLoggedin ? "/profile" : "/login"}
+            to="/profile"
             className={({ isActive }) =>
               isActive ? "nav-link navlink-active" : "nav-link"
             }

@@ -18,6 +18,34 @@ export const dataReducer = (dataState, action) => {
       return { ...dataState, showSearch: action.payload };
     case "SET_SHOWSEARCH_FALSE":
       return { ...dataState, showSearch: action.payload };
+    case "SET_USER_ADDRESS":
+      return { ...dataState, address: [...dataState?.address, action.payload] };
+    case "DELETE_USER_ADDRESS":
+      return {
+        ...dataState,
+        address: dataState?.address?.filter(({ id }) => id !== action.payload),
+      };
+    case "EDIT_TODO":
+      return {
+        ...dataState,
+        address: dataState?.address?.map((item) =>
+          item.id === action.payload ? { ...item, isEdit: true } : item
+        ),
+      };
+    case "SAVE_EDITED_ADDRESS":
+      return {
+        ...dataState,
+        address: dataState?.address?.map((item) =>
+          item.id === action.payload[1] ? { ...action.payload[0] } : item
+        ),
+      };
+    case "CANCEL_EDITED_ADDRESS":
+      return {
+        ...dataState,
+        address: dataState?.address?.map((item) =>
+          item.id === action.payload ? { ...item, isEdit: false } : item
+        ),
+      };
     default:
       console.log("something went wrong");
   }
