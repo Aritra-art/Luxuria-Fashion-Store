@@ -5,6 +5,7 @@ import { ImageSlider } from "../components/ImageSlider";
 import { NewArrivalSection } from "../components/NewArrivalSection";
 import { DataContext } from "../context/DataContext";
 import { FilterContext } from "../context/FilterContext";
+import { TopBrands } from "../components/TopBrands";
 
 export const Home = () => {
   const { dispatchData } = useContext(DataContext);
@@ -23,6 +24,7 @@ export const Home = () => {
     <>
       <ImageSlider />
       <GenderSection />
+      <TopBrands />
       <NewArrivalSection />
       <BestSellerSection />
     </>
