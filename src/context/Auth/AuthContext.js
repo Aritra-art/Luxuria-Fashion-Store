@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { authReducer } from "../../reducer/AuthReducer";
 import { postSignupData } from "../../utils/Auth/postSignupData";
 import { postLoginData } from "../../utils/Auth/postLoginData";
