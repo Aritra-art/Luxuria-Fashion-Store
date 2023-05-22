@@ -83,7 +83,11 @@ export const SingleProduct = () => {
             </div>
             <div className="single-product-availability">
               <b>Availability</b> -{" "}
-              {singleProduct?.stock ? "In Stock" : "out of Stock"}
+              {singleProduct?.stock ? (
+                "In Stock"
+              ) : (
+                <span style={{ color: "red" }}>out of Stock</span>
+              )}
             </div>
             <div className="single-product-availability">
               <b>Size</b> - {singleProduct?.size}
@@ -132,7 +136,10 @@ export const SingleProduct = () => {
                 className="single-product-card-wishlist-btn"
                 onClick={() => {
                   if (!authState?.isLoggedin) {
-                    alert("please login to continue");
+                    failToastMsg("please login to continue");
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 2500);
                   } else {
                     if (isItemPresentInWishlist(dataState, singleProduct?.id)) {
                       successToastMsg("Product Removed from Wishlist");

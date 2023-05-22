@@ -8,7 +8,6 @@ import { SizeFilters } from "./SizeFilters";
 import { TypeFilters } from "./TypeFilters";
 import { FilterContext } from "../context/FilterContext";
 import { DataContext } from "../context/DataContext";
-import { PriceRange } from "../utils/PriceRange";
 
 export const Filters = () => {
   const { filterState, dispatchFilter } = useContext(FilterContext);
@@ -48,7 +47,7 @@ export const Filters = () => {
           className="price-slider"
           max={maxPrice}
           min={minPrice}
-          // step="10"
+          // step="100"
           value={filterState?.priceRange}
           onChange={(e) =>
             dispatchFilter({

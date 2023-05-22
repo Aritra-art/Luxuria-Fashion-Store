@@ -11,7 +11,6 @@ export const AuthContextProvider = ({ children }) => {
   const [authState, dispatchAuth] = useReducer(authReducer, {
     isLoggedin: false,
     userDetails: {},
-    // userToken: "",
   });
   const navigate = useNavigate();
   const signupUser = async (signupData) => {
