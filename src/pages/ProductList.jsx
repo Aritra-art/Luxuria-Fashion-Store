@@ -11,7 +11,6 @@ export const ProductList = () => {
   const { dataState } = useContext(DataContext);
   const { filterState } = useContext(FilterContext);
   const filteredArr = filteredArray(dataState, filterState);
-  console.log("product list page");
 
   return (
     <>
