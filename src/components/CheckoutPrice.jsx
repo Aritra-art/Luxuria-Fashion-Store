@@ -59,7 +59,16 @@ export const CheckoutPrice = () => {
               ₹ {totalCartPrice(dataState)}
             </span>
           </p>
-          <div className="place-order__btn">
+          <div
+            className="place-order__btn"
+            onClick={() => {
+              if (dataState?.address?.length === 0) {
+                alert("please select a address");
+              } else {
+                alert("order placed");
+              }
+            }}
+          >
             <Button title="Place Order" />
           </div>
         </div>

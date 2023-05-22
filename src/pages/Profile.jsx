@@ -74,6 +74,7 @@ export const Profile = () => {
                 dataState?.address.map(
                   ({
                     id,
+                    userName,
                     houseNumber,
                     mobileNumber,
                     area,
@@ -84,7 +85,9 @@ export const Profile = () => {
                     return (
                       <div key={id} className="address-section">
                         <div>{isEdit && <EditAddress editTodoId={id} />}</div>
-
+                        <p>
+                          Name: <b className="address-line">{userName}</b>
+                        </p>
                         <p>
                           House Number:{" "}
                           <b className="address-line">{houseNumber}</b>Mobile

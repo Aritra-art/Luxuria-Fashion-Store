@@ -5,6 +5,7 @@ export const EditAddress = ({ editTodoId }) => {
   const { dataState, dispatchData } = useContext(DataContext);
   const [editAddress, setEditAddress] = useState({
     id: editTodoId,
+    userName: dataState?.address?.find(({ id }) => id === editTodoId).userName,
     houseNumber: dataState?.address?.find(({ id }) => id === editTodoId)
       .houseNumber,
     mobileNumber: dataState?.address?.find(({ id }) => id === editTodoId)
@@ -20,6 +21,18 @@ export const EditAddress = ({ editTodoId }) => {
   return (
     <>
       <form className="address-form-container">
+        <label className="address-form-container-label">
+          Name
+          <input
+            placeholder="2877 Arthur Avenue"
+            className="address-form-container-input"
+            type="text"
+            required
+            name="userName"
+            value={editAddress.userName}
+            onChange={handleInputChange}
+          />
+        </label>
         <label className="address-form-container-label">
           House Number
           <input

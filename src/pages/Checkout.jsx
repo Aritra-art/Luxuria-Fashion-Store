@@ -18,16 +18,7 @@ export const Checkout = () => {
           <Button title="Add new Address" />
         </div>
       </div>
-      <div
-        className="checkout-price"
-        onClick={() => {
-          if (dataState?.address?.length === 0) {
-            alert("please select a address");
-          } else {
-            alert("order placed");
-          }
-        }}
-      >
+      <div className="checkout-price">
         <CheckoutPrice />
       </div>
     </div>

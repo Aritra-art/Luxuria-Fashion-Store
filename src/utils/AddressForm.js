@@ -6,6 +6,7 @@ export const AddressForm = ({ setAddAddress }) => {
   const { dispatchData } = useContext(DataContext);
   const [addressForm, setAddressForm] = useState({
     id: Number(Math.random()).toFixed(3),
+    userName: "",
     houseNumber: "",
     mobileNumber: "",
     area: "",
@@ -29,6 +30,18 @@ export const AddressForm = ({ setAddAddress }) => {
   return (
     <>
       <form onSubmit={addressHandlerForm} className="address-form-container">
+        <label className="address-form-container-label">
+          Name
+          <input
+            placeholder="John Doe"
+            className="address-form-container-input"
+            type="text"
+            required
+            name="userName"
+            value={addressForm.userName}
+            onChange={handleInputChange}
+          />
+        </label>
         <label className="address-form-container-label">
           House Number
           <input

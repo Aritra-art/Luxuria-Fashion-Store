@@ -6,7 +6,9 @@ export const AddressRender = () => {
   const [selectedAdd, setSelectedAdd] = useState(dataState.address[0]);
   const addressCard = {
     border: "1px solid black",
-    width: "fit-content",
+    width: "80%",
+    borderRadius: "5px",
+    backgroundColor: "#f8f8f8",
     padding: "10px",
   };
 
@@ -17,7 +19,15 @@ export const AddressRender = () => {
     return (
       <>
         {dataState.address.map(
-          ({ id: addId, houseNumber, mobileNumber, area, city, pincode }) => {
+          ({
+            id: addId,
+            userName,
+            houseNumber,
+            mobileNumber,
+            area,
+            city,
+            pincode,
+          }) => {
             return (
               <div style={addressCard} key={addId}>
                 <label>
@@ -31,8 +41,13 @@ export const AddressRender = () => {
                     }
                   />
                   <span>
-                    {houseNumber} {area}
+                    <b style={{ fontSize: "1.5rem", marginLeft: "10px" }}>
+                      {userName}
+                    </b>
                   </span>
+                  <p>
+                    {houseNumber} {area}
+                  </p>
                   <p>
                     {city} {pincode}
                   </p>
