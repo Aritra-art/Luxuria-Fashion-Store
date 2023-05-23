@@ -9,7 +9,7 @@ import { EditAddress } from "../utils/EditAddresss";
 
 export const Profile = () => {
   const { authState, dispatchAuth } = useContext(AuthContext);
-  const { dataState, dispatchData } = useContext(DataContext);
+  const { dataState, dispatchData, clearItems } = useContext(DataContext);
   const [showAdd, setShowAdd] = useState(false);
   const [addAddress, setAddAddress] = useState(false);
 
@@ -134,13 +134,14 @@ export const Profile = () => {
               localStorage.removeItem("userToken");
               dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
               dispatchAuth({ type: "SET_USER", payload: {} });
+              clearItems();
             }}
           >
             <Button title="Logout" />
-            <ToastContainer />
           </div>
         </div>
       </div>
+      {/* <ToastContainer /> */}
     </>
   );
 };

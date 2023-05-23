@@ -132,9 +132,9 @@ export const Signup = () => {
               </NavLink>
             </small>
           </form>
-          <ToastContainer />
         </main>
       </div>
+      {/* <ToastContainer /> */}
     </>
   );
 };

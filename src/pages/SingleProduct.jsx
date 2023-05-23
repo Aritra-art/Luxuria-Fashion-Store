@@ -110,9 +110,7 @@ export const SingleProduct = () => {
                 onClick={() => {
                   if (!authState?.isLoggedin) {
                     failToastMsg("please login to continue");
-                    setTimeout(() => {
-                      navigate("/login");
-                    }, 2500);
+                    navigate("/login");
                   } else {
                     if (!isItemPresentInCart(dataState, singleProduct?.id)) {
                       addToCartHandler(singleProduct, dispatchData);
@@ -137,9 +135,7 @@ export const SingleProduct = () => {
                 onClick={() => {
                   if (!authState?.isLoggedin) {
                     failToastMsg("please login to continue");
-                    setTimeout(() => {
-                      navigate("/login");
-                    }, 2500);
+                    navigate("/login");
                   } else {
                     if (isItemPresentInWishlist(dataState, singleProduct?.id)) {
                       successToastMsg("Product Removed from Wishlist");
@@ -166,11 +162,11 @@ export const SingleProduct = () => {
                   </span>
                 )}
               </button>
-              <ToastContainer />
             </div>
           </div>
         </div>
       )}
+      {/* <ToastContainer /> */}
     </>
   );
 };

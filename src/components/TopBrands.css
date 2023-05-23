@@ -1,7 +1,7 @@
 .top-brands-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .brand-image-tile {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

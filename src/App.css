@@ -17,8 +17,8 @@
   background: #94a3b8;
 }
 .success-toast-message {
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
 }
 
 /* .App {

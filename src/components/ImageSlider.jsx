@@ -3,12 +3,10 @@ import menCover from "../images/HomePage/Men-cover-img.webp";
 import womenCover from "../images/HomePage/Women-cover-img.webp";
 import kidCover from "../images/HomePage/kids-cover-img.jpg";
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
-import { FilterContext } from "../context/FilterContext";
+import { useState } from "react";
 
 export const ImageSlider = () => {
   const [index, setIndex] = useState(0);
-  const { dispatchFilter } = useContext(FilterContext);
 
   const imgArr = [
     { imgUrl: menCover, category: "Men" },
@@ -47,12 +45,12 @@ export const ImageSlider = () => {
               <NavLink
                 className="slider-image-link"
                 to="/products"
-                onClick={() => {
-                  dispatchFilter({
-                    type: "SET_CATEGORY_FILTER",
-                    payload: category,
-                  });
-                }}
+                // onClick={() => {
+                //   dispatchFilter({
+                //     type: "SET_CATEGORY_FILTER",
+                //     payload: category,
+                //   });
+                // }}
               >
                 Shop Now
               </NavLink>

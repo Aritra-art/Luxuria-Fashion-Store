@@ -113,13 +113,13 @@ export const CartItemsRender = () => {
                           : "Add to Wishlist"
                       }
                     />
-                    <ToastContainer />
                   </div>
                 </div>
               </div>
             </div>
           );
         })}
+      {/* <ToastContainer /> */}
     </div>
   );
 };

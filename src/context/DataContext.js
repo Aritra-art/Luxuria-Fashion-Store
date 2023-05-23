@@ -96,12 +96,12 @@ export const DataContextProvider = ({ children }) => {
     getCategories();
     getTypes();
     getProducts();
-    !authState?.isLoggedin && clearItems();
+  }, [dispatchData]);
+
+  useEffect(() => {
     authState?.isLoggedin && setItems();
-  }, [dispatchData, authState?.isLoggedin]);
+  }, [authState?.isLoggedin]);
 
-  // console.log(dataState);
-
-  const value = { dataState, dispatchData };
+  const value = { dataState, dispatchData, clearItems, setItems };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

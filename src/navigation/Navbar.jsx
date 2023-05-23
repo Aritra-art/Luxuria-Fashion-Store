@@ -85,7 +85,9 @@ export const Navbar = () => {
             <i className="fas fa-heart"></i>
             <span className="link-text">Wishlist</span>
             <span className="wishlist-count">
-              {dataState?.wishlist?.length}
+              <span style={{ position: "relative", bottom: "6px" }}>
+                {dataState?.wishlist?.length}
+              </span>
             </span>
           </NavLink>
         </li>
@@ -98,7 +100,11 @@ export const Navbar = () => {
           >
             <i className="fas fa-shopping-cart"></i>
             <span className="link-text">Cart</span>
-            <span className="cart-count">{dataState?.cart?.length}</span>
+            <span className="cart-count">
+              <span style={{ position: "relative", bottom: "6px" }}>
+                {dataState?.cart?.length}
+              </span>
+            </span>
           </NavLink>
         </li>
         <li

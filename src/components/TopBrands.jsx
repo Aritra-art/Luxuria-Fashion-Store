@@ -21,7 +21,7 @@ export const TopBrands = () => {
               src={url}
               key={id}
               alt="url"
-              width="200px"
+              width="190px"
               className="brand-image-tile"
             />
           );

@@ -12,11 +12,13 @@ import { Login } from "./pages/Auth/Login";
 import { Checkout } from "./pages/Checkout";
 import { RequireAuth } from "./utils/Auth/RequireAuth";
 import { Profile } from "./pages/Profile";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <ToastContainer position="bottom-right" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

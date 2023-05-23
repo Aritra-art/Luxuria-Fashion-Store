@@ -10,10 +10,10 @@ export const NewArrivalSection = () => {
     dataState?.products &&
     dataState?.products
       ?.filter(({ type }) => type.toLowerCase() === "new arrival")
-      ?.slice(0, 5);
+      ?.slice(0, 4);
   return (
     <>
-      <h1 className="newarrival-header">
+      <h1 className="newarrival-header margin-top">
         {dataState?.types && dataState?.types[0]?.type}
       </h1>
       {dataState?.isLoading && (

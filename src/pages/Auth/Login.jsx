@@ -100,9 +100,9 @@ export const Login = () => {
               </NavLink>
             </small>
           </form>
-          <ToastContainer />
         </div>
       </div>
+      {/* <ToastContainer /> */}
     </>
   );
 };

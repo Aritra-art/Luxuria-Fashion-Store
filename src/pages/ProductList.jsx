@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./ProductList.css";
 import { DataContext } from "../context/DataContext";
 import { ProductCard } from "../components/ProductCard";
@@ -6,9 +6,11 @@ import { Filters } from "../components/Filters";
 import { FilterContext } from "../context/FilterContext";
 import { PropagateLoader } from "react-spinners";
 import { filteredArray } from "../utils/filteredArray";
+import { AuthContext } from "../context/Auth/AuthContext";
 
 export const ProductList = () => {
-  const { dataState } = useContext(DataContext);
+  const { dataState, setItems } = useContext(DataContext);
+  const { authState } = useContext(AuthContext);
   const { filterState } = useContext(FilterContext);
   const filteredArr = filteredArray(dataState, filterState);
 

@@ -60,7 +60,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
           return (
             <div className="card-container" key={id}>
               <NavLink
-                to={`/products`}
+                to={fromHomePage ? `/products` : `/products/${id}`}
                 onClick={() => {
                   if (fromHomePage) {
                     dispatchFilter({
@@ -73,7 +73,12 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 <img src={thumbnail} alt={title} width="300px" height="280px" />
               </NavLink>
               {!stock && (
-                <div className="">
+                <div
+                  className=""
+                  onClick={() =>
+                    navigate(fromHomePage ? "/products" : `/products/${id}`)
+                  }
+                >
                   <b className="out-of-stock">out of stock</b>
                 </div>
               )}
@@ -86,10 +91,8 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   className="heart-icon"
                   onClick={() => {
                     if (!authState?.isLoggedin) {
+                      navigate("/login");
                       failToastMsg("please login to continue");
-                      setTimeout(() => {
-                        navigate("/login");
-                      }, 2500);
                     } else {
                       if (!isItemPresentInWishlist(dataState, id)) {
                         successToastMsg("Product Added to Wishlist");
@@ -134,9 +137,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                 onClick={() => {
                   if (!authState?.isLoggedin) {
                     failToastMsg("please login to continue");
-                    setTimeout(() => {
-                      navigate("/login");
-                    }, 2500);
+                    navigate("/login");
                   } else {
                     if (!isItemPresentInCart(dataState, id)) {
                       successToastMsg("Product Added to Cart");
@@ -155,11 +156,11 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                       : "Add to Cart"
                   }
                 />
-                <ToastContainer />
               </div>
             </div>
           );
         })}
+      {/* <ToastContainer /> */}
     </>
   );
 };

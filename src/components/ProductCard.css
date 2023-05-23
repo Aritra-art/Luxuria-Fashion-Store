@@ -31,7 +31,7 @@
   color: rgb(164, 164, 164);
   font-weight: bold;
   margin: 6px 0px 0px 0px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   letter-spacing: 1.5px;
 }
 .card-rating {
@@ -109,4 +109,5 @@
   height: 140px;
   padding-top: 140px;
   text-align: center;
+  cursor: pointer;
 }
