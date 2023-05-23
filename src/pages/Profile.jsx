@@ -6,6 +6,7 @@ import { DataContext } from "../context/DataContext";
 import { ToastContainer } from "react-toastify";
 import { AddressForm } from "../utils/AddressForm";
 import { EditAddress } from "../utils/EditAddresss";
+import { successToastMsg } from "../components/ProductCard";
 
 export const Profile = () => {
   const { authState, dispatchAuth } = useContext(AuthContext);
@@ -59,7 +60,11 @@ export const Profile = () => {
             <div onClick={() => setAddAddress((addAddress) => !addAddress)}>
               <Button title={addAddress ? "Cancel" : "Add Address"} />
             </div>
-            <div onClick={() => setShowAdd((showAdd) => !showAdd)}>
+            <div
+              onClick={() => {
+                setShowAdd((showAdd) => !showAdd);
+              }}
+            >
               <Button
                 title={showAdd ? "Hide Address" : "Show All Address(es)"}
               />
@@ -84,7 +89,11 @@ export const Profile = () => {
                   }) => {
                     return (
                       <div key={id} className="address-section">
-                        <div>{isEdit && <EditAddress editTodoId={id} />}</div>
+                        <div>
+                          {isEdit && (
+                            <EditAddress editTodoId={id} showAdd={showAdd} />
+                          )}
+                        </div>
                         <p>
                           Name: <b className="address-line">{userName}</b>
                         </p>
@@ -132,6 +141,7 @@ export const Profile = () => {
             style={{ padding: "10px 0px 0px 0px", width: "fit-content" }}
             onClick={() => {
               localStorage.removeItem("userToken");
+              successToastMsg("Logout Successfull");
               dispatchAuth({ type: "SET_LOGIN_FALSE", payload: false });
               dispatchAuth({ type: "SET_USER", payload: {} });
               clearItems();
