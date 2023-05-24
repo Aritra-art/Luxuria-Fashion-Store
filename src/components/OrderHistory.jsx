@@ -5,9 +5,15 @@ import "./OrderHistory.css";
 export const OrderHistory = () => {
   const { dataState } = useContext(DataContext);
   console.log(dataState?.orderHistory);
+  const addressPlaceholder = {
+    letterSpacing: "2px",
+    marginRight: "5px",
+    fontSize: "1.1rem",
+  };
+
   return (
     <div className="order-history-container">
-      <ol>
+      <ol style={{ padding: "0" }}>
         {dataState?.orderHistory &&
           dataState?.orderHistory?.map(
             ({
@@ -22,18 +28,18 @@ export const OrderHistory = () => {
               return (
                 <li className="order-history" key={id}>
                   <p>
-                    <span>Order ID</span>
+                    <span className="order-placeholder">Order ID</span>
                     {id}
                   </p>
                   <p>
-                    <span>Order Date</span>
+                    <span className="order-placeholder">Order Date</span>
                     {orderDate}
                   </p>
                   <p>
-                    <span>Order Time</span>
+                    <span className="order-placeholder">Order Time</span>
                     {orderTime}
                   </p>
-                  <h2>Ordered Items</h2>
+                  <h2 className="order-heading">Ordered Items</h2>
                   <div className="order-history-order-layout">
                     {order &&
                       order?.map(({ id, title, qty, thumbnail }) => {
@@ -48,15 +54,24 @@ export const OrderHistory = () => {
                       })}
                   </div>
 
-                  <h2>Delivered Address</h2>
+                  <h2 className="order-heading">Delivered Address</h2>
                   <div>
-                    <h2>{address.userName}</h2>
+                    <h2 style={{ fontSize: "1.3rem" }}>{address.userName}</h2>
                     <p>
-                      House Number: {address?.houseNumber} Area: {address.area}
+                      <span style={addressPlaceholder}>House Number:</span>{" "}
+                      {address?.houseNumber}{" "}
+                      <span style={addressPlaceholder}>Area:</span>{" "}
+                      {address.area}
                     </p>
-                    <p>City: {address.city}</p>
                     <p>
-                      Pincode: {address?.pincode} Ph No. {address.mobileNumber}
+                      <span style={addressPlaceholder}>City:</span>{" "}
+                      {address.city}
+                    </p>
+                    <p>
+                      <span style={addressPlaceholder}>Pincode:</span>{" "}
+                      {address?.pincode}{" "}
+                      <span style={addressPlaceholder}>Ph No.</span>{" "}
+                      {address.mobileNumber}
                     </p>
                   </div>
                 </li>

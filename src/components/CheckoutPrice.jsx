@@ -51,11 +51,11 @@ export const CheckoutPrice = ({ selectedAdd }) => {
           order: [...dataState?.cart],
           orderDate: new Date().toLocaleDateString(),
           orderTime:
-            new Date().getFullYear() +
-            "-" +
-            (new Date().getMonth() + 1) +
-            "-" +
-            new Date().getDate(),
+            new Date().getHours() +
+            ":" +
+            new Date().getMinutes() +
+            ":" +
+            new Date().getSeconds(),
           amount: totalCartPrice(dataState),
           address: selectedAdd,
           paymentId: response.razorpay_payment_id,

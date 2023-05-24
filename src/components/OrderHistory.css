@@ -22,3 +22,15 @@
   padding: 10px;
   border-radius: 5px;
 }
+.order-placeholder {
+  font-size: 1.2rem;
+  margin: 0px 10px 5px 0px;
+  letter-spacing: 2px;
+}
+.order-placeholder::after {
+  content: " ---";
+}
+.order-heading {
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+}
