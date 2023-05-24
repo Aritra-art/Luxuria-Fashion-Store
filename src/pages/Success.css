@@ -11,16 +11,21 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.order-history-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 20px 0px;
+}
+
 .product-order {
   display: flex;
   flex-wrap: wrap;
   border: 2px solid rgba(0, 0, 0, 0.3);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
-  width: fit-content;
-  margin: 0 auto;
   padding: 10px;
   border-radius: 5px;
-  gap: 2rem;
 }
 .product-order-content {
   align-self: center;

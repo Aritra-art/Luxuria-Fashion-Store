@@ -49,6 +49,13 @@ export const CheckoutPrice = ({ selectedAdd }) => {
         const orderHistoryObj = {
           id: orderId(),
           order: [...dataState?.cart],
+          orderDate: new Date().toLocaleDateString(),
+          orderTime:
+            new Date().getFullYear() +
+            "-" +
+            (new Date().getMonth() + 1) +
+            "-" +
+            new Date().getDate(),
           amount: totalCartPrice(dataState),
           address: selectedAdd,
           paymentId: response.razorpay_payment_id,

@@ -6,6 +6,7 @@ import { DataContext } from "../context/DataContext";
 import { AddressForm } from "../utils/AddressForm";
 import { EditAddress } from "../utils/EditAddresss";
 import { successToastMsg } from "../components/ProductCard";
+import { OrderHistory } from "../components/OrderHistory";
 
 export const Profile = () => {
   const { authState, dispatchAuth } = useContext(AuthContext);
@@ -210,7 +211,11 @@ export const Profile = () => {
               )}
             </div>
           )}
-          {profileView?.orderHistory && <div>order</div>}
+          {profileView?.orderHistory && (
+            <div>
+              <OrderHistory />
+            </div>
+          )}
         </div>
       </div>
     </>
