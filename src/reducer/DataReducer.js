@@ -46,6 +46,11 @@ export const dataReducer = (dataState, action) => {
           item.id === action.payload ? { ...item, isEdit: false } : item
         ),
       };
+    case "SET_ORDER_HISTORY":
+      return {
+        ...dataState,
+        orderHistory: [...dataState?.orderHistory, action.payload],
+      };
     default:
       console.log("something went wrong");
   }

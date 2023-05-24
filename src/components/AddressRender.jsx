@@ -1,9 +1,8 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 
-export const AddressRender = () => {
+export const AddressRender = ({ selectedAdd, setSelectedAdd }) => {
   const { dataState } = useContext(DataContext);
-  const [selectedAdd, setSelectedAdd] = useState(dataState.address[0]);
   const addressCard = {
     border: "1px solid black",
     width: "80%",
@@ -11,8 +10,6 @@ export const AddressRender = () => {
     backgroundColor: "#f8f8f8",
     padding: "10px",
   };
-
-  console.log(selectedAdd);
   if (dataState?.address?.length === 0) {
     return <h2>No Address Added</h2>;
   } else {

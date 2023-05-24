@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./Login.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import { ToastContainer } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 export const Login = () => {
   const [login, setLogin] = useState({
@@ -11,6 +12,14 @@ export const Login = () => {
     err: "",
   });
   const { loginUser } = useContext(AuthContext);
+  const { dispatchData } = useContext(DataContext);
+
+  useEffect(() => {
+    dispatchData({
+      type: "SET_SHOWSEARCH_FALSE",
+      payload: false,
+    });
+  }, []);
 
   const loginHandler = (e) => {
     e.preventDefault();

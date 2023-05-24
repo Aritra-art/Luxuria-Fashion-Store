@@ -8,9 +8,7 @@ import {
   addToWishlistHandler,
   isItemPresentInWishlist,
 } from "../utils/addToWishlistHandler";
-import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
 import { useNavigate } from "react-router";
-import { ToastContainer } from "react-toastify";
 import { successToastMsg } from "./ProductCard";
 
 export const CartItemsRender = () => {
@@ -60,7 +58,7 @@ export const CartItemsRender = () => {
                     handleQuantityChangeCart(dispatchData, id, "increment")
                   }
                 >
-                  <i class="fas fa-plus quantity-btn"></i>
+                  <i className="fas fa-plus quantity-btn"></i>
                 </span>
 
                 <span
@@ -82,7 +80,7 @@ export const CartItemsRender = () => {
                     }
                   }}
                 >
-                  <i class="fas fa-minus quantity-btn"></i>
+                  <i className="fas fa-minus quantity-btn"></i>
                 </span>
 
                 <div className="cart-item-btns">

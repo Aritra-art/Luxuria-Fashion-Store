@@ -3,12 +3,74 @@ import { DataContext } from "../context/DataContext";
 import "./CheckoutPrice.css";
 import { discountedAmount, totalCartPrice } from "../pages/Cart";
 import { Button } from "./Button";
+import { successToastMsg } from "./ProductCard";
+import { clearCart } from "../utils/clearCart";
+import { useNavigate } from "react-router";
 
 const totalPriceWithoutDiscount = (dataState) =>
   dataState?.cart?.reduce((acc, { price, qty }) => acc + price * qty, 0);
 
-export const CheckoutPrice = () => {
-  const { dataState } = useContext(DataContext);
+const loadScript = (url) => {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = url;
+
+    script.onload = () => {
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      resolve(false);
+    };
+
+    document.body.appendChild(script);
+  });
+};
+
+export const CheckoutPrice = ({ selectedAdd }) => {
+  const { dataState, dispatchData } = useContext(DataContext);
+  const navigate = useNavigate();
+  const displayRazorpay = async () => {
+    const response = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    if (!response) {
+      alert("Razorpay SDK failed to load, check you internet connection");
+      return;
+    }
+    const options = {
+      key: "rzp_test_inOiRZzQS21nfX",
+      amount: Number(totalCartPrice(dataState)) * 100,
+      currency: "INR",
+      name: "LUXURIA",
+      description: "Thank you for shopping with us",
+      handler: function (response) {
+        const orderHistoryObj = {
+          order: [...dataState?.cart],
+          amount: totalCartPrice(dataState),
+          address: selectedAdd,
+          paymentId: response.razorpay_payment_id,
+        };
+
+        dispatchData({
+          type: "SET_ORDER_HISTORY",
+          payload: orderHistoryObj,
+        });
+        successToastMsg(
+          `Payment of Rs. ${totalCartPrice(dataState)} is Succesfull`
+        );
+        clearCart(dispatchData, dataState);
+        navigate("/success");
+      },
+      theme: {
+        color: "#000000",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
     <>
       <div className="checkout-container">
@@ -65,7 +127,7 @@ export const CheckoutPrice = () => {
               if (dataState?.address?.length === 0) {
                 alert("please select a address");
               } else {
-                alert("order placed");
+                displayRazorpay();
               }
             }}
           >

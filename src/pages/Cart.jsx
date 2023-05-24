@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartItemsRender } from "../components/CartItemsRender";
 import "./Cart.css";
 import { DataContext } from "../context/DataContext";
@@ -21,7 +21,13 @@ export const discountedAmount = (dataState) =>
 
 export const Cart = () => {
   const navigate = useNavigate();
-  const { dataState } = useContext(DataContext);
+  const { dataState, dispatchData } = useContext(DataContext);
+  useEffect(() => {
+    dispatchData({
+      type: "SET_SHOWSEARCH_FALSE",
+      payload: false,
+    });
+  }, []);
 
   const divStyle = {
     display: "flex",

@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../context/DataContext";
 import "./Wishlist.css";
 import { ProductCard } from "../components/ProductCard";
 
 export const Wishlist = () => {
-  const { dataState } = useContext(DataContext);
+  const { dataState, dispatchData } = useContext(DataContext);
+  useEffect(() => {
+    dispatchData({
+      type: "SET_SHOWSEARCH_FALSE",
+      payload: false,
+    });
+  }, []);
 
   if (dataState?.wishlist?.length === 0) {
     return (

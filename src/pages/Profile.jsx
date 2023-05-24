@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./Profile.css";
 import { AuthContext } from "../context/Auth/AuthContext";
 import { Button } from "../components/Button";
 import { DataContext } from "../context/DataContext";
-import { ToastContainer } from "react-toastify";
 import { AddressForm } from "../utils/AddressForm";
 import { EditAddress } from "../utils/EditAddresss";
 import { successToastMsg } from "../components/ProductCard";
@@ -13,6 +12,13 @@ export const Profile = () => {
   const { dataState, dispatchData, clearItems } = useContext(DataContext);
   const [showAdd, setShowAdd] = useState(false);
   const [addAddress, setAddAddress] = useState(false);
+
+  useEffect(() => {
+    dispatchData({
+      type: "SET_SHOWSEARCH_FALSE",
+      payload: false,
+    });
+  }, []);
 
   const btnStyle = {
     fontSize: "1.2rem",
@@ -151,7 +157,6 @@ export const Profile = () => {
           </div>
         </div>
       </div>
-      {/* <ToastContainer /> */}
     </>
   );
 };

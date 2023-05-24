@@ -13,6 +13,7 @@ import { Checkout } from "./pages/Checkout";
 import { RequireAuth } from "./utils/Auth/RequireAuth";
 import { Profile } from "./pages/Profile";
 import { ToastContainer } from "react-toastify";
+import { Success } from "./pages/Success";
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
           element={
             <RequireAuth>
               <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <RequireAuth>
+              <Success />
             </RequireAuth>
           }
         />
