@@ -1,0 +1,37 @@
+.success-container-layout {
+  height: 100vh;
+}
+.success-container-card {
+  width: 80%;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  margin: 30px auto;
+  padding: 20px 10px 30px 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.product-order {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 2rem;
+}
+.product-order-content {
+  align-self: center;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.product-card-placeholder {
+  letter-spacing: 2.5px;
+  font-size: 1.4rem;
+}
+.product-card-placeholder-amount {
+  font-size: 1.5rem;
+}

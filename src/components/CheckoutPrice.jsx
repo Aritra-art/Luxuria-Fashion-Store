@@ -3,9 +3,10 @@ import { DataContext } from "../context/DataContext";
 import "./CheckoutPrice.css";
 import { discountedAmount, totalCartPrice } from "../pages/Cart";
 import { Button } from "./Button";
-import { successToastMsg } from "./ProductCard";
+import { failToastMsg, successToastMsg } from "./ProductCard";
 import { clearCart } from "../utils/clearCart";
 import { useNavigate } from "react-router";
+import { orderId } from "../utils/orderId";
 
 const totalPriceWithoutDiscount = (dataState) =>
   dataState?.cart?.reduce((acc, { price, qty }) => acc + price * qty, 0);
@@ -46,6 +47,7 @@ export const CheckoutPrice = ({ selectedAdd }) => {
       description: "Thank you for shopping with us",
       handler: function (response) {
         const orderHistoryObj = {
+          id: orderId(),
           order: [...dataState?.cart],
           amount: totalCartPrice(dataState),
           address: selectedAdd,
@@ -124,8 +126,9 @@ export const CheckoutPrice = ({ selectedAdd }) => {
           <div
             className="place-order__btn"
             onClick={() => {
-              if (dataState?.address?.length === 0) {
-                alert("please select a address");
+              if (totalCartPrice(dataState) === 0) {
+                failToastMsg("please add some items to the cart");
+                navigate("/products");
               } else {
                 displayRazorpay();
               }

@@ -69,7 +69,6 @@ export const DataContextProvider = ({ children }) => {
       const cartResponse = await getCartItems(encodedToken);
       const wishlistResponse = await getWishlistItems(encodedToken);
       if (cartResponse?.status === 200) {
-        console.log(cartResponse?.data?.cart);
         dispatchData({
           type: "SET_CART_ITEMS",
           payload: cartResponse?.data?.cart,
@@ -103,8 +102,6 @@ export const DataContextProvider = ({ children }) => {
   useEffect(() => {
     authState?.isLoggedin && setItems();
   }, [authState?.isLoggedin]);
-
-  console.log(dataState?.orderHistory);
 
   const value = { dataState, dispatchData, clearItems, setItems };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
