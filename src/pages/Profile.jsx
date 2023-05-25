@@ -16,7 +16,7 @@ export const Profile = () => {
     userAddress: false,
     orderHistory: false,
   });
-  const [showAdd, setShowAdd] = useState(false);
+  const [showAdd, setShowAdd] = useState(true);
   const [addAddress, setAddAddress] = useState(false);
 
   useEffect(() => {
@@ -42,6 +42,10 @@ export const Profile = () => {
         <div className="profile-container">
           <div className="profile-content">
             <h2
+              style={{
+                backgroundColor: profileView?.userDetails && "black",
+                color: profileView?.userDetails && "white",
+              }}
               className="profile-content-header"
               onClick={() =>
                 setProfileView(() => ({
@@ -54,6 +58,10 @@ export const Profile = () => {
               Your Profile
             </h2>
             <h2
+              style={{
+                backgroundColor: profileView?.userAddress && "black",
+                color: profileView?.userAddress && "white",
+              }}
               className="profile-content-header"
               onClick={() =>
                 setProfileView(() => ({
@@ -66,6 +74,10 @@ export const Profile = () => {
               Addresses
             </h2>
             <h2
+              style={{
+                backgroundColor: profileView?.orderHistory && "black",
+                color: profileView?.orderHistory && "white",
+              }}
               className="profile-content-header"
               onClick={() =>
                 setProfileView(() => ({
@@ -211,11 +223,7 @@ export const Profile = () => {
               )}
             </div>
           )}
-          {profileView?.orderHistory && (
-            <div>
-              <OrderHistory />
-            </div>
-          )}
+          {profileView?.orderHistory && <OrderHistory />}
         </div>
       </div>
     </>

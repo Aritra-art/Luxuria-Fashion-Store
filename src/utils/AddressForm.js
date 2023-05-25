@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import "./AddressForm.css";
+import { failToastMsg } from "../components/ProductCard";
 
 export const AddressForm = ({ setAddAddress }) => {
   const { dispatchData } = useContext(DataContext);
@@ -20,11 +21,20 @@ export const AddressForm = ({ setAddAddress }) => {
   };
   const addressHandlerForm = (e) => {
     e.preventDefault();
-    dispatchData({
-      type: "SET_USER_ADDRESS",
-      payload: addressForm,
-    });
-    setAddAddress(false);
+    const phoneRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    const pinRegex = /^\d{6}$/;
+    if (
+      phoneRegex.test(addressForm?.mobileNumber) &&
+      pinRegex.test(addressForm?.pincode)
+    ) {
+      dispatchData({
+        type: "SET_USER_ADDRESS",
+        payload: addressForm,
+      });
+      setAddAddress(false);
+    } else {
+      failToastMsg("please enter valid Mobile Number and Pin Code");
+    }
   };
 
   return (
@@ -59,7 +69,7 @@ export const AddressForm = ({ setAddAddress }) => {
           <input
             placeholder="+91-855-592-2564"
             className="address-form-container-input"
-            type="number"
+            type="tel"
             required
             value={addressForm.mobileNumber}
             name="mobileNumber"
