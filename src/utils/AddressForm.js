@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import "./AddressForm.css";
-import { failToastMsg } from "../components/ProductCard";
+import { failToastMsg, successToastMsg } from "../components/ProductCard";
 
 export const AddressForm = ({ setAddAddress }) => {
   const { dispatchData } = useContext(DataContext);
@@ -31,9 +31,14 @@ export const AddressForm = ({ setAddAddress }) => {
         type: "SET_USER_ADDRESS",
         payload: addressForm,
       });
+      successToastMsg("Address Successfully Added");
       setAddAddress(false);
     } else {
-      failToastMsg("please enter valid Mobile Number and Pin Code");
+      if (!phoneRegex.test(addressForm?.mobileNumber)) {
+        failToastMsg("Please enter valid Mobile Number");
+      } else if (!phoneRegex.test(addressForm?.pincode)) {
+        failToastMsg("Please enter valid Pincode");
+      }
     }
   };
 

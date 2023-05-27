@@ -2,13 +2,12 @@
   height: 100%;
 }
 .profile-container {
-  border: 1px solid;
-
-  width: 80%;
+  /* border: 1px solid; */
+  width: 50%;
   border-radius: 6px;
   height: fit-content;
   margin: 30px auto;
-  padding: 0px 10px 20px 20px;
+  padding: 10px 20px 10px 20px;
 }
 .profile-content-header {
   text-align: center;
@@ -52,6 +51,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0px 10px;
+  background-color: rgb(244, 241, 241);
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 .profile-content-header {
   border: 1px solid;

@@ -21,6 +21,7 @@ export const DataContextProvider = ({ children }) => {
     address: userAddress(),
     orderHistory: [],
   });
+
   const encodedToken = localStorage.getItem("userToken");
   const getCategories = async () => {
     try {

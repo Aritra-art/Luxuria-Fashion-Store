@@ -51,6 +51,8 @@ export const dataReducer = (dataState, action) => {
         ...dataState,
         orderHistory: [...dataState?.orderHistory, action.payload],
       };
+    case "SET_INITIAL_ADDRESS":
+      return { ...dataState, address: [...dataState?.address, action.payload] };
     default:
       console.log("something went wrong");
   }
