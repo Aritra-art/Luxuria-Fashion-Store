@@ -38,6 +38,16 @@ export const Cart = () => {
     return (
       <div style={{ width: "100%", height: "100vh" }}>
         <h2 className="wishlist-header">My Cart</h2>
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png"
+          height="70%"
+          alt="wishlist_img"
+          style={{
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        />
         <h3 style={{ textAlign: "center" }}>
           <b>
             Cart is Empty{" "}

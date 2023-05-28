@@ -6,7 +6,6 @@ import { SingleProduct } from "./pages/SingleProduct";
 import { Cart } from "./pages/Cart";
 import { Wishlist } from "./pages/Wishlist";
 import { Navbar } from "./navigation/Navbar";
-import { Footer } from "./components/Footer";
 import { Signup } from "./pages/Auth/Signup";
 import { Login } from "./pages/Auth/Login";
 import { Checkout } from "./pages/Checkout";
@@ -67,7 +66,6 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
     </div>
   );
 }

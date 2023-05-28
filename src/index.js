@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { DataContextProvider } from "./context/DataContext";
 import { FilterContextProvider } from "./context/FilterContext";
 import { AuthContextProvider } from "./context/Auth/AuthContext";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Call make Server
 makeServer();
@@ -14,6 +15,7 @@ makeServer();
 ReactDOM.render(
   // <React.StrictMode>
   <BrowserRouter>
+    <ScrollToTop />
     <AuthContextProvider>
       <DataContextProvider>
         <FilterContextProvider>

@@ -6,6 +6,7 @@ import { NewArrivalSection } from "../components/NewArrivalSection";
 import { DataContext } from "../context/DataContext";
 import { FilterContext } from "../context/FilterContext";
 import { TopBrands } from "../components/TopBrands";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
   const { dispatchData } = useContext(DataContext);
@@ -27,6 +28,7 @@ export const Home = () => {
       <TopBrands />
       <NewArrivalSection />
       <BestSellerSection />
+      <Footer />
     </>
   );
 };

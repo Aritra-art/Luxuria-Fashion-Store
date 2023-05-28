@@ -16,7 +16,17 @@ export const Wishlist = () => {
     return (
       <div style={{ width: "100%", height: "100vh" }}>
         <h2 className="wishlist-header">My Wishlist</h2>
-        <h3 style={{ textAlign: "center" }}>Wishlist is Empty</h3>
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/no-wishlist-8316267-6632287.png?f=avif"
+          height="60%"
+          alt="wishlist_img"
+          style={{
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        />
+        <h3 style={{ textAlign: "center" }}>Your Wishlist is Empty</h3>
       </div>
     );
   } else {
