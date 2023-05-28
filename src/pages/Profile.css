@@ -2,7 +2,6 @@
   height: 100%;
 }
 .profile-container {
-  /* border: 1px solid; */
   width: 50%;
   border-radius: 6px;
   height: fit-content;
@@ -35,7 +34,7 @@
   border: 1px solid rgba(0, 0, 0, 0.24);
   width: fit-content;
   height: 100%;
-  padding: 10px;
+  padding: 20px;
   margin: 30px 0px;
   border-radius: 5px;
   background-color: rgb(244, 241, 241);
@@ -44,7 +43,10 @@
 }
 .address-line {
   font-size: 1.2rem;
-  margin: 0px 10px;
+  margin: 0px 0px;
+}
+.address-line-nomargin {
+  font-size: 1.2rem;
 }
 
 .profile-content {

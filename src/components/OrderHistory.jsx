@@ -1,23 +1,32 @@
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import "./OrderHistory.css";
+import { AuthContext } from "../context/Auth/AuthContext";
 
 export const OrderHistory = () => {
   const { dataState } = useContext(DataContext);
+  const { authState } = useContext(AuthContext);
+
+  const orderHistoryArr =
+    dataState?.orderHistory &&
+    authState?.userDetails &&
+    dataState?.orderHistory?.filter(
+      ({ user }) => user === authState?.userDetails?.email
+    );
 
   const addressPlaceholder = {
     letterSpacing: "2px",
     marginRight: "5px",
     fontSize: "1.1rem",
   };
-  if (dataState?.orderHistory?.length === 0) {
+  if (orderHistoryArr.length === 0) {
     return <h2>No orders to display</h2>;
   } else {
     return (
       <div className="order-history-container">
         <ol style={{ padding: "0" }}>
-          {dataState?.orderHistory &&
-            dataState?.orderHistory?.map(
+          {orderHistoryArr &&
+            orderHistoryArr.map(
               ({
                 address,
                 amount,

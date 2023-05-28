@@ -7,6 +7,8 @@ import { failToastMsg, successToastMsg } from "./ProductCard";
 import { clearCart } from "../utils/clearCart";
 import { useNavigate } from "react-router";
 import { orderId } from "../utils/orderId";
+import { AuthContext } from "../context/Auth/AuthContext";
+import dayjs from "dayjs";
 
 const totalPriceWithoutDiscount = (dataState) =>
   dataState?.cart?.reduce((acc, { price, qty }) => acc + price * qty, 0);
@@ -30,6 +32,7 @@ const loadScript = (url) => {
 
 export const CheckoutPrice = ({ selectedAdd }) => {
   const { dataState, dispatchData } = useContext(DataContext);
+  const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
   const displayRazorpay = async () => {
     const response = await loadScript(
@@ -47,6 +50,7 @@ export const CheckoutPrice = ({ selectedAdd }) => {
       description: "Thank you for shopping with us",
       handler: function (response) {
         const orderHistoryObj = {
+          user: authState?.userDetails?.email,
           id: orderId(),
           order: [...dataState?.cart],
           orderDate: new Date().toLocaleDateString(),

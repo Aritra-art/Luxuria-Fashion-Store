@@ -11,6 +11,7 @@ import { UserProfile } from "../components/UserProfile";
 
 export const Profile = () => {
   const { authState, dispatchAuth } = useContext(AuthContext);
+
   const { dataState, dispatchData, clearItems } = useContext(DataContext);
   const [profileView, setProfileView] = useState({
     userDetails: true,
@@ -144,21 +145,28 @@ export const Profile = () => {
                                 />
                               )}
                             </div>
-                            <p>
-                              Name: <b className="address-line">{userName}</b>
+
+                            <b
+                              className="address-line-nomargin"
+                              style={{ textTransform: "capitalize" }}
+                            >
+                              {userName}
+                            </b>
+
+                            <p className="address-line-nomargin">
+                              {houseNumber}, {area}, {city}
                             </p>
                             <p>
-                              House Number:{" "}
-                              <b className="address-line">{houseNumber}</b>
-                              Mobile Number:{" "}
-                              <b className="address-line">{mobileNumber}</b>
+                              Pincode:{" "}
+                              <span className="address-line-nomargin">
+                                {pincode}
+                              </span>
                             </p>
                             <p>
-                              Area: <b className="address-line">{area}</b>City:{" "}
-                              <b className="address-line">{city}</b>
-                            </p>
-                            <p>
-                              Pincode: <b className="address-line">{pincode}</b>
+                              Phone Number:{" "}
+                              <span className="address-line-nomargin">
+                                {mobileNumber}
+                              </span>
                             </p>
                             <button
                               style={btnStyle}
@@ -197,3 +205,5 @@ export const Profile = () => {
     </>
   );
 };
+
+//pm/am

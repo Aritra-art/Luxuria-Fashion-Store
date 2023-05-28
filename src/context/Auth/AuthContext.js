@@ -1,10 +1,9 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { authReducer } from "../../reducer/AuthReducer";
 import { postSignupData } from "../../utils/Auth/postSignupData";
 import { postLoginData } from "../../utils/Auth/postLoginData";
 import { useNavigate } from "react-router";
 import { successToastMsg } from "../../components/ProductCard";
-import { DataContext } from "../DataContext";
 
 export const AuthContext = createContext();
 
@@ -13,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
     isLoggedin: false,
     userDetails: {},
   });
+
   const navigate = useNavigate();
   const signupUser = async (signupData) => {
     try {

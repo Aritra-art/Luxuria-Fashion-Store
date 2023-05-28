@@ -43,11 +43,9 @@ export const AddressRender = ({ selectedAdd, setSelectedAdd }) => {
                     </b>
                   </span>
                   <p>
-                    {houseNumber} {area}
+                    {houseNumber}, {area}, {city}
                   </p>
-                  <p>
-                    {city} {pincode}
-                  </p>
+                  <p>Pincode: {pincode}</p>
                   <p>Ph No. {mobileNumber}</p>
                 </label>
               </div>
