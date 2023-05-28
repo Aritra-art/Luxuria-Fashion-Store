@@ -15,8 +15,15 @@
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0px;
+  position: relative;
 
   justify-content: space-between;
+}
+.del-modal-layout-container {
+  position: fixed;
+  left: 40.5%;
+  top: 20%;
+  background-color: palegoldenrod;
 }
 
 .cart-item-image {
@@ -24,6 +31,11 @@
   height: 280px;
   flex-shrink: 1;
   flex-grow: 1;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.cart-item-image:hover {
+  scale: 1.015;
 }
 .cart-item-content {
   width: 50%;

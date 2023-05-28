@@ -18,7 +18,6 @@ export const CartItemsRender = () => {
 
   const [delModal, setDelModal] = useState(initialDelModal(dataState));
   const navigate = useNavigate();
-  console.log(delModal);
 
   return (
     <div className="cart-items">
@@ -39,14 +38,21 @@ export const CartItemsRender = () => {
 
           return (
             <div className="cart-item" key={id}>
-              {delModal[id] && (
-                <DelModal
-                  id={id}
-                  setDelModal={setDelModal}
-                  dispatchData={dispatchData}
-                />
-              )}
-              <div className="cart-item-image">
+              <div className="del-modal-layout-container">
+                {delModal[id] && (
+                  <DelModal
+                    id={id}
+                    setDelModal={setDelModal}
+                    dispatchData={dispatchData}
+                    dataState={dataState}
+                  />
+                )}
+              </div>
+
+              <div
+                className="cart-item-image"
+                onClick={() => navigate(`/products/${id}`)}
+              >
                 <img src={thumbnail} alt={title} width="300px" height="280px" />
               </div>
 

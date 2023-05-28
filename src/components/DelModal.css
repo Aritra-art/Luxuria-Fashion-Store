@@ -1,11 +1,12 @@
 .del-modal-layout {
   border: 1px solid;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 6rem;
+  font-size: larger;
+  height: 8rem;
   justify-content: space-between;
 }
 .del-modal-btn {
@@ -13,10 +14,18 @@
 }
 .del-modal-yes-btn {
   margin-left: 10px;
+  color: red;
+}
+.del-modal-no-btn {
+  color: green;
 }
 .del-modal-yes-btn,
 .del-modal-no-btn {
-  padding: 3px 6px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  font-size: 1.5rem;
+  padding: 4px 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
