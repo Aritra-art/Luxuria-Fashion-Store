@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import "./CartItemsRender.css";
 import { Button } from "./Button";
@@ -10,10 +10,16 @@ import {
 } from "../utils/addToWishlistHandler";
 import { useNavigate } from "react-router";
 import { successToastMsg } from "./ProductCard";
+import { DelModal } from "./DelModal";
+import { initialDelModal } from "../utils/initialDelModal";
 
 export const CartItemsRender = () => {
   const { dataState, dispatchData } = useContext(DataContext);
+
+  const [delModal, setDelModal] = useState(initialDelModal(dataState));
   const navigate = useNavigate();
+  console.log(delModal);
+
   return (
     <div className="cart-items">
       {dataState?.cart &&
@@ -30,8 +36,16 @@ export const CartItemsRender = () => {
             discountPercentage,
             qty,
           } = cartItem;
+
           return (
             <div className="cart-item" key={id}>
+              {delModal[id] && (
+                <DelModal
+                  id={id}
+                  setDelModal={setDelModal}
+                  dispatchData={dispatchData}
+                />
+              )}
               <div className="cart-item-image">
                 <img src={thumbnail} alt={title} width="300px" height="280px" />
               </div>
@@ -73,8 +87,7 @@ export const CartItemsRender = () => {
                 <span
                   onClick={() => {
                     if (qty === 1) {
-                      successToastMsg("Product Removed from Cart ");
-                      removeFromCartHandler(dispatchData, id);
+                      setDelModal((delModal) => ({ ...delModal, [id]: true }));
                     } else {
                       handleQuantityChangeCart(dispatchData, id, "decrement");
                     }
@@ -117,7 +130,6 @@ export const CartItemsRender = () => {
             </div>
           );
         })}
-      {/* <ToastContainer /> */}
     </div>
   );
 };
