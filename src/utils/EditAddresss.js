@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
+import { failToastMsg } from "../components/ProductCard";
 
 export const EditAddress = ({ editTodoId }) => {
   const { dataState, dispatchData } = useContext(DataContext);
@@ -91,11 +92,23 @@ export const EditAddress = ({ editTodoId }) => {
         <button
           className="address-form-container-btn "
           type="submit"
-          onClick={() => {
-            dispatchData({
-              type: "SAVE_EDITED_ADDRESS",
-              payload: [editAddress, editTodoId],
-            });
+          onClick={(e) => {
+            e.preventDefault();
+            const phoneRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+            const pinRegex = /^\d{6}$/;
+            if (
+              phoneRegex.test(editAddress?.mobileNumber) &&
+              pinRegex.test(editAddress?.pincode)
+            ) {
+              dispatchData({
+                type: "SAVE_EDITED_ADDRESS",
+                payload: [editAddress, editTodoId],
+              });
+            } else if (!phoneRegex.test(editAddress?.mobileNumber)) {
+              failToastMsg("please enter valid Mobile Number");
+            } else if (!pinRegex.test(editAddress?.pincode)) {
+              failToastMsg("please enter valid Pincode");
+            }
           }}
         >
           Edit Address

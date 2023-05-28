@@ -56,7 +56,7 @@ export const OrderHistory = () => {
                         {orderTime}
                       </p>
                       <p>
-                        <span className="order-placeholder">Order Amount</span>
+                        <span className="order-placeholder">Order Amount</span>₹
                         {amount}
                       </p>
                       <div>

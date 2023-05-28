@@ -9,6 +9,7 @@
   background-color: rgba(0, 0, 0, 0.24);
   background-color: rgb(244, 241, 241);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 10px;
 }
 .address-form-container-label {
   margin: 10px;
