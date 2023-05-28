@@ -134,6 +134,20 @@ export const CheckoutPrice = ({ selectedAdd }) => {
               ₹ {totalCartPrice(dataState)}
             </span>
           </p>
+          <hr />
+          <p className="total__price">Deliver To</p>
+          <div className="checkout__item">
+            <span>
+              <b style={{ fontSize: "1.5rem" }}>{selectedAdd?.userName}</b>
+            </span>
+            <p>
+              {selectedAdd?.houseNumber}, {selectedAdd?.area},{" "}
+              {selectedAdd?.city}
+            </p>
+            <p>Pincode: {selectedAdd?.pincode}</p>
+            <p>Ph No. {selectedAdd?.mobileNumber}</p>
+          </div>
+
           <div
             className="place-order__btn"
             onClick={() => {
