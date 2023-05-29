@@ -4,10 +4,16 @@ import { removeFromCartHandler } from "../utils/removeFromCartHandler";
 import { isItemPresentInCart } from "../utils/addToCartHandler";
 import { successToastMsg } from "./ProductCard";
 
-export const DelModal = ({ id, setDelModal, dispatchData, dataState }) => {
+export const DelModal = ({
+  id,
+  title,
+  setDelModal,
+  dispatchData,
+  dataState,
+}) => {
   return (
     <div className="del-modal-layout">
-      Do you want to delete this Product ?
+      Do you want to remove {title} ?
       <div className="del-modal-btn">
         <button
           className="del-modal-no-btn"
@@ -20,7 +26,7 @@ export const DelModal = ({ id, setDelModal, dispatchData, dataState }) => {
         <button
           className="del-modal-yes-btn"
           onClick={(e) => {
-            e.target.innerText = "Deleting . . . ";
+            e.target.innerText = "REMOVING . . . ";
             removeFromCartHandler(dispatchData, id);
             successToastMsg("Item Removed From Cart");
             if (!isItemPresentInCart(dataState, id)) {

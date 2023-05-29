@@ -38,16 +38,18 @@ export const CartItemsRender = () => {
 
           return (
             <div className="cart-item" key={id}>
-              <div className="del-modal-layout-container">
-                {delModal[id] && (
-                  <DelModal
-                    id={id}
-                    setDelModal={setDelModal}
-                    dispatchData={dispatchData}
-                    dataState={dataState}
-                  />
-                )}
-              </div>
+              <div
+                className={delModal[id] && "del-modal-layout-container-overlay"}
+              ></div>
+              {delModal[id] && (
+                <DelModal
+                  id={id}
+                  title={title}
+                  setDelModal={setDelModal}
+                  dispatchData={dispatchData}
+                  dataState={dataState}
+                />
+              )}
 
               <div
                 className="cart-item-image"

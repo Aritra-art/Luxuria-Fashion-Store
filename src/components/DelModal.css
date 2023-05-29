@@ -1,4 +1,7 @@
 .del-modal-layout {
+  position: fixed;
+  left: 34%;
+  top: 40%;
   border: 1px solid;
   padding: 15px;
   border-radius: 5px;
@@ -6,8 +9,10 @@
   flex-direction: column;
   flex-wrap: wrap;
   font-size: larger;
-  background-color: black;
-  height: 8rem;
+  height: 10rem;
+  width: 30%;
+  z-index: 2;
+  background-color: rgb(238, 238, 238);
   justify-content: space-between;
 }
 .del-modal-btn {
