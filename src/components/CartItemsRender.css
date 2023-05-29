@@ -23,7 +23,6 @@
   position: fixed;
   left: 40.5%;
   top: 20%;
-  background-color: palegoldenrod;
 }
 
 .cart-item-image {
@@ -60,3 +59,5 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/* https://www.w3schools.com/howto/howto_css_modals.asp */

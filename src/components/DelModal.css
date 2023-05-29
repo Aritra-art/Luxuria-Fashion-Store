@@ -6,6 +6,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   font-size: larger;
+  background-color: black;
   height: 8rem;
   justify-content: space-between;
 }
