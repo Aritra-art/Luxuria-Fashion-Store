@@ -3,8 +3,8 @@
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 0px 10px 30px 30px;
-  width: 300px;
-  height: 460px;
+  width: 220px;
+  height: 430px;
   position: relative;
   transition: all 0.1s ease-out;
 }
@@ -16,12 +16,12 @@
 .card-title {
   text-decoration: none;
   color: black;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
   transition: all 0.5s ease;
 }
 .card-title-div {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 .card-title:hover {
   color: rgb(83, 83, 83);
@@ -30,18 +30,19 @@
 .card-category {
   color: rgb(164, 164, 164);
   font-weight: bold;
-  margin: 6px 0px 0px 0px;
+  margin: 2px 0px 0px 0px;
   text-transform: capitalize;
   letter-spacing: 1.5px;
 }
 .card-rating {
   position: absolute;
-  bottom: 125px;
+  bottom: 100px;
   background: white;
   left: 0px;
-  padding: 5px 10px;
+  padding: 3px 6px;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 1rem;
 }
 .rating-star {
   margin-left: 5px;
@@ -50,16 +51,16 @@
   position: absolute;
   right: 0px;
   border-radius: 50%;
-  bottom: 340px;
+  bottom: 325px;
   background-color: white;
-  padding: 9px 12px;
-  font-size: 1.3rem;
+  padding: 4px 8px;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
 .discount-percentage {
   margin: 0px 10px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .discount-percentage::after {
@@ -71,7 +72,7 @@
   color: rgb(164, 164, 164);
 }
 .new-price {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #16a34a;
 }
@@ -80,7 +81,7 @@
 }
 
 .card-btn {
-  margin: 10px 0px 0px 10px;
+  margin: 8px 0px 0px 10px;
 }
 .card-size {
   position: absolute;
@@ -104,8 +105,8 @@
   letter-spacing: 2.5px;
   top: 0%;
   background-color: rgba(99, 99, 99, 0.4);
-  font-size: 1.5rem;
-  width: 300px;
+  font-size: 1.3rem;
+  width: 220px;
   height: 140px;
   padding-top: 140px;
   text-align: center;

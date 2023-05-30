@@ -30,12 +30,14 @@
 }
 .card-trending-tag {
   position: absolute;
-  bottom: 358px;
+  bottom: 346px;
   background-color: white;
-  left: -10px;
+  left: -11px;
+  font-size: 0.9rem;
   border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding: 3px 6px;
+  padding: 3px 4px;
   font-weight: 600;
 }
 .price-slider-content {

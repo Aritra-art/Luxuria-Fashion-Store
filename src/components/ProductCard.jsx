@@ -70,7 +70,7 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   }
                 }}
               >
-                <img src={thumbnail} alt={title} width="300px" height="280px" />
+                <img src={thumbnail} alt={title} width="220px" height="280px" />
               </NavLink>
               {!stock && (
                 <div
@@ -124,7 +124,9 @@ export const ProductCard = ({ data, fromHomePage, typeSelection }) => {
                   <span className="discount-percentage">
                     {discountPercentage}
                   </span>
-                  <span className="original-price">{price}</span>
+                  <span className="original-price">
+                    <small>{price}</small>
+                  </span>
                 </div>
                 <div className="card-category">{category}</div>
                 <div className="card-rating">

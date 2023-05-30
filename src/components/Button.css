@@ -1,19 +1,19 @@
 .btn-style {
-  padding: 10px 20px;
+  padding: 8px 14px;
   background: black;
   color: white;
   font-weight: bold;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: all 0.2s ease-in;
 }
 .btn-style-secondary {
-  padding: 10px 20px;
+  padding: 7px 14px;
   background: white;
   color: black;
   font-weight: bold;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: all 0.2s ease-in;
 }
 .btn-style:hover {
