@@ -19,12 +19,12 @@ export const CartDetails = ({ data }) => {
   const titleStyle = {
     textTransform: "uppercase",
     letterSpacing: "2px",
-    fontSize: "1.5rem",
+    fontSize: "1.1rem",
     marginLeft: "20px",
   };
   const priceStyle = {
     fontWeight: "bold",
-    fontSize: "1.5rem",
+    fontSize: "1.1rem",
     marginRight: "20px",
   };
   return (

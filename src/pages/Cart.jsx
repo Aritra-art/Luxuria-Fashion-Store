@@ -5,6 +5,8 @@ import { DataContext } from "../context/DataContext";
 import { CartDetails } from "../components/CartDetails";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router";
+import { clearCart } from "../utils/clearCart";
+import { successToastMsg } from "../components/ProductCard";
 
 export const totalCartPrice = (dataState) =>
   dataState?.cart?.reduce(
@@ -66,6 +68,18 @@ export const Cart = () => {
     return (
       <>
         <h2 className="wishlist-header">My Cart</h2>
+        <div
+          style={{ marginLeft: "20px" }}
+          onClick={() => {
+            clearCart(dispatchData, dataState);
+            successToastMsg("Cart Cleared");
+          }}
+        >
+          {dataState?.cart && dataState?.cart?.length > 0 && (
+            <Button title="Clear Cart" />
+          )}
+        </div>
+
         <div className="cart-container-layout">
           <div className="cart-container-items">
             <CartItemsRender />

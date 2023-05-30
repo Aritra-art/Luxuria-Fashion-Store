@@ -11,11 +11,12 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 2px;
   border-radius: 6px;
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0px;
   position: relative;
+  height: 270px;
 
   justify-content: space-between;
 }
@@ -24,15 +25,13 @@
   position: fixed;
   top: 0;
   z-index: 1;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
 .cart-item-image {
-  width: 300px;
-  height: 280px;
   flex-shrink: 1;
   flex-grow: 1;
   cursor: pointer;
@@ -42,7 +41,7 @@
   scale: 1.015;
 }
 .cart-item-content {
-  width: 50%;
+  width: fit-content;
   flex-shrink: 1;
   flex-grow: 1;
 }
@@ -52,7 +51,7 @@
 }
 .quantity-btn {
   color: whitesmoke;
-  padding: 6px;
+  padding: 4px;
   border-radius: 50%;
   background: black;
   cursor: pointer;
@@ -64,5 +63,3 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-/* https://www.w3schools.com/howto/howto_css_modals.asp */

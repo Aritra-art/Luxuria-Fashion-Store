@@ -9,8 +9,8 @@
 .order-history-order-layout {
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
-  align-items: start;
+  justify-content: flex-end;
+  align-items: flex-start;
   overflow: scroll;
   flex-basis: 60%;
 }

@@ -14,7 +14,7 @@ import {
   isItemPresentInWishlist,
 } from "../utils/addToWishlistHandler";
 import { removeFromWishlistHandler } from "../utils/removeFromWishlistHandler";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const successToastMsg = (msg) => {

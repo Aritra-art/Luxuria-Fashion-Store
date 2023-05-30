@@ -30,12 +30,11 @@
 }
 .card-trending-tag {
   position: absolute;
-  bottom: 346px;
+  bottom: 330px;
   background-color: white;
   left: -11px;
   font-size: 0.9rem;
   border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 3px 4px;
   font-weight: 600;

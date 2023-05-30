@@ -71,7 +71,7 @@ export const products = [
     rating: 4.9,
     stock: true,
     brand: "H&M",
-    category: "Women",
+    category: "Men",
     type: "Best Seller",
     size: "XL",
     thumbnail:
@@ -153,7 +153,7 @@ export const products = [
     price: 1099,
     discountPercentage: 15,
     rating: 3.7,
-    stock: false,
+    stock: true,
     brand: "Max",
     category: "Kids",
     type: "New Arrival",

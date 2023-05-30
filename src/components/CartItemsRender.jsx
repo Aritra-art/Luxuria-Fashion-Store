@@ -55,7 +55,7 @@ export const CartItemsRender = () => {
                 className="cart-item-image"
                 onClick={() => navigate(`/products/${id}`)}
               >
-                <img src={thumbnail} alt={title} width="300px" height="280px" />
+                <img src={thumbnail} alt={title} width="230px" height="270px" />
               </div>
 
               <div className="cart-item-content">
@@ -87,7 +87,7 @@ export const CartItemsRender = () => {
                   style={{
                     margin: "3px 12px 0px 10px",
                     backgroundColor: "whitesmoke",
-                    fontSize: "1.5rem",
+                    fontSize: "1.1rem",
                   }}
                 >
                   {qty}

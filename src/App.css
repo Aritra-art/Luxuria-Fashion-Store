@@ -25,3 +25,8 @@
   display: flex;
   flex-direction: column;
 }
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: black;
+}

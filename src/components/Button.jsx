@@ -11,7 +11,8 @@ export const Button = ({ title, disabled }) => {
       className={
         title === "Go to Cart" ||
         title === "Remove from Cart" ||
-        title === "Go to Wishlist"
+        title === "Go to Wishlist" ||
+        title === "Clear Cart"
           ? "btn-style-secondary"
           : "btn-style"
       }
