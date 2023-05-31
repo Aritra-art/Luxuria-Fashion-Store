@@ -2,23 +2,22 @@ import { useContext } from "react";
 import "./AppliedFilters.css";
 import { FilterContext } from "../context/FilterContext";
 
-export const AppliedFilters = () => {
-  const { filterState, dispatchFilter } = useContext(FilterContext);
-  console.log(filterState?.categoryFilter);
+export const AppliedFilters = ({ filterArr, type }) => {
+  const { dispatchFilter } = useContext(FilterContext);
   return (
     <div style={{ marginBottom: "20px" }}>
-      {filterState?.categoryFilter &&
-        filterState?.categoryFilter?.length > 0 &&
-        filterState?.categoryFilter?.map((category) => {
+      {filterArr &&
+        filterArr?.length > 0 &&
+        filterArr?.map((filter) => {
           return (
-            <span className="applied-category-filter">
-              {category}
+            <span className="applied-category-filter" key={filter}>
+              {filter}
               <span
                 style={{ padding: "0px 4px", fontWeight: "bold" }}
                 onClick={() =>
                   dispatchFilter({
-                    type: "SET_CATEGORY_FILTER",
-                    payload: category,
+                    type: type,
+                    payload: filter,
                   })
                 }
               >

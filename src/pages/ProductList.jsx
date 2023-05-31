@@ -38,7 +38,25 @@ export const ProductList = () => {
             All Products
             <small className="productlist-length">[{filteredArr.length}]</small>
           </h1>
-          <AppliedFilters />
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <AppliedFilters
+              filterArr={filterState?.categoryFilter}
+              type="SET_CATEGORY_FILTER"
+            />
+            <AppliedFilters
+              filterArr={filterState?.typeFilter}
+              type="SET_TYPE_FILTER"
+            />
+            <AppliedFilters
+              filterArr={filterState?.sizeFilter}
+              type="SET_SIZE_FILTER"
+            />
+            <AppliedFilters
+              filterArr={filterState?.brandFilter}
+              type="SET_BRAND_FILTER"
+            />
+          </div>
+
           {filteredArr.length > 0 ? (
             <div className="productlist-products">
               {dataState?.products && <ProductCard data={filteredArr} />}
