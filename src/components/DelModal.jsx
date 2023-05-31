@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./DelModal.css";
 import { removeFromCartHandler } from "../utils/removeFromCartHandler";
 import { isItemPresentInCart } from "../utils/addToCartHandler";

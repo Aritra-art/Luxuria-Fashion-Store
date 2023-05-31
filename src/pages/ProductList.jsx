@@ -6,10 +6,10 @@ import { Filters } from "../components/Filters";
 import { FilterContext } from "../context/FilterContext";
 import { PropagateLoader } from "react-spinners";
 import { filteredArray } from "../utils/filteredArray";
+import { AppliedFilters } from "../components/AppliedFilters";
 
 export const ProductList = () => {
   const { dataState } = useContext(DataContext);
-
   const { filterState } = useContext(FilterContext);
   const filteredArr = filteredArray(dataState, filterState);
 
@@ -38,6 +38,7 @@ export const ProductList = () => {
             All Products
             <small className="productlist-length">[{filteredArr.length}]</small>
           </h1>
+          <AppliedFilters />
           {filteredArr.length > 0 ? (
             <div className="productlist-products">
               {dataState?.products && <ProductCard data={filteredArr} />}
