@@ -1,4 +1,5 @@
 import axios from "axios";
+import { failToastMsg } from "../../components/ProductCard";
 
 export const postLoginData = async (loginData) => {
   if (loginData.hasOwnProperty("err")) {
@@ -11,6 +12,7 @@ export const postLoginData = async (loginData) => {
       return response;
     } catch (error) {
       console.error(error);
+      failToastMsg(error?.response?.data?.errors[0].split(".")[0]);
     }
   } else {
     try {

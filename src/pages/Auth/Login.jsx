@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import "./Login.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/Auth/AuthContext";
-import { ToastContainer } from "react-toastify";
 import { DataContext } from "../../context/DataContext";
 
 export const Login = () => {
@@ -11,8 +10,13 @@ export const Login = () => {
     password: "",
     err: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const { loginUser } = useContext(AuthContext);
   const { dispatchData } = useContext(DataContext);
+
+  const passwordToggleHandler = () => {
+    setShowPassword((showPassword) => !showPassword);
+  };
 
   useEffect(() => {
     dispatchData({
@@ -71,19 +75,30 @@ export const Login = () => {
                 type="email"
                 name="email"
                 placeholder="aritrachowdhury@gmail.com"
-                className="login-container-input"
+                className="login-container-input email-container-input"
                 onChange={handleChangeInput}
               />
             </label>
             <label>
-              <div className="login-container-labeltag">Password</div>
+              <div className="login-container-labeltag ">Password</div>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="******"
-                className="login-container-input"
+                className="login-container-input "
                 onChange={handleChangeInput}
               />
+              {showPassword ? (
+                <i
+                  className="fa-sharp fa-regular fa-eye-slash visibility-eye"
+                  onClick={passwordToggleHandler}
+                ></i>
+              ) : (
+                <i
+                  className="fa-regular fa-eye visibility-eye"
+                  onClick={passwordToggleHandler}
+                ></i>
+              )}
             </label>
             <i style={{ marginTop: "4px", color: "red" }}>
               {login?.err?.length > 0 && login.err}
@@ -111,7 +126,6 @@ export const Login = () => {
           </form>
         </div>
       </div>
-      {/* <ToastContainer /> */}
     </>
   );
 };

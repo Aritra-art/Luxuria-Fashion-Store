@@ -13,7 +13,6 @@ export const FilterContextProvider = ({ children }) => {
     ratingFilter: "",
     sortPriceFilter: "",
   });
-  console.log(filterState?.priceRange);
 
   const value = { filterState, dispatchFilter };
   return (

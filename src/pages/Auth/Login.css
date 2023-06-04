@@ -8,11 +8,11 @@
 
 .login-container-image {
   /* border: 1px solid red; */
-  width: 60%;
+  flex-basis: 50%;
   height: 100vh;
 }
 .login-container-form {
-  width: 39%;
+  flex-basis: 49%;
   border-left: 3px solid black;
   text-align: center;
   height: 100vh;
@@ -35,6 +35,7 @@
   font-size: 1.2rem;
 }
 .login-container-input {
+  position: relative;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1.2rem;
@@ -54,4 +55,12 @@
   cursor: pointer;
   background-color: black;
   color: white;
+}
+.visibility-eye {
+  position: absolute;
+  right: 17%;
+  margin-top: 15px;
+  /* bottom: 50.5%; */
+  cursor: pointer;
+  font-size: 1.2rem;
 }
