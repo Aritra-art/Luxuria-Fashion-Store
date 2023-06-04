@@ -17,8 +17,8 @@ export const SingleProductImages = ({ data }) => {
                 key={url}
                 src={url}
                 alt="product"
-                width="400px"
-                height="400px"
+                width="450px"
+                height="550px"
               />
             </div>
           );

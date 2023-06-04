@@ -11,7 +11,8 @@
   border: 1px solid;
   border-radius: 5px;
   flex-basis: 15%;
-  height: fit-content;
+  height: 85vh;
+  overflow: scroll;
 }
 .productlist-container {
   flex-basis: 82%;
@@ -22,7 +23,8 @@
   text-transform: uppercase;
 }
 .productlist-products {
-  /* border: 1px solid green; */
+  height: 73vh;
+  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
