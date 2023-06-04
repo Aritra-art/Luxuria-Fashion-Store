@@ -1,9 +1,18 @@
-.single-product-image {
+.single-product-image-wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.24);
   margin: 15px 0;
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.single-product-image {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease;
 }
 
-/* .single-product-image:hover {
+.single-product-image:hover {
   cursor: zoom-in;
-} */
+  transform: scale(1.15);
+}

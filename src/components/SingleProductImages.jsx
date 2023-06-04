@@ -11,14 +11,16 @@ export const SingleProductImages = ({ data }) => {
       {data &&
         data.map((url) => {
           return (
-            <img
-              className="single-product-image"
-              key={url}
-              src={url}
-              alt="product"
-              width="400px"
-              height="400px"
-            />
+            <div className="single-product-image-wrapper" style={{}}>
+              <img
+                className="single-product-image"
+                key={url}
+                src={url}
+                alt="product"
+                width="400px"
+                height="400px"
+              />
+            </div>
           );
         })}
     </div>

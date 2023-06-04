@@ -7,6 +7,7 @@ import { FilterContext } from "../context/FilterContext";
 import { PropagateLoader } from "react-spinners";
 import { filteredArray } from "../utils/filteredArray";
 import { AppliedFilters } from "../components/AppliedFilters";
+import { SortOptions } from "../components/SortOptions";
 
 export const ProductList = () => {
   const { dataState } = useContext(DataContext);
@@ -38,7 +39,13 @@ export const ProductList = () => {
             All Products
             <small className="productlist-length">[{filteredArr.length}]</small>
           </h1>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+            }}
+          >
             <AppliedFilters
               filterArr={filterState?.categoryFilter}
               type="SET_CATEGORY_FILTER"
@@ -55,6 +62,9 @@ export const ProductList = () => {
               filterArr={filterState?.brandFilter}
               type="SET_BRAND_FILTER"
             />
+            <div style={{ marginLeft: "auto", margin: "0 20px 15px auto" }}>
+              <SortOptions />
+            </div>
           </div>
 
           {filteredArr.length > 0 ? (
