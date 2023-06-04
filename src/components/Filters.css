@@ -9,7 +9,6 @@
 }
 .filter-clear-btn {
   align-self: center;
-  margin-right: 10px;
   background-color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -29,5 +28,5 @@
 }
 .price-slider {
   accent-color: black;
-  width: 95%;
+  width: 100%;
 }

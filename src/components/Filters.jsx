@@ -47,7 +47,6 @@ export const Filters = () => {
           className="price-slider"
           max={maxPrice}
           min={minPrice}
-          // step="100"
           value={filterState?.priceRange}
           onChange={(e) =>
             dispatchFilter({

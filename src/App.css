@@ -29,4 +29,5 @@
 input[type="checkbox"],
 input[type="radio"] {
   accent-color: black;
+  cursor: pointer;
 }
