@@ -12,6 +12,7 @@ import { useNavigate } from "react-router";
 import { successToastMsg } from "./ProductCard";
 import { DelModal } from "./DelModal";
 import { initialDelModal } from "../utils/initialDelModal";
+import { clearCart } from "../utils/clearCart";
 
 export const CartItemsRender = () => {
   const { dataState, dispatchData } = useContext(DataContext);
@@ -21,6 +22,16 @@ export const CartItemsRender = () => {
 
   return (
     <div className="cart-items">
+      <div
+        onClick={() => {
+          clearCart(dispatchData, dataState);
+          successToastMsg("Cart Cleared");
+        }}
+      >
+        {dataState?.cart && dataState?.cart?.length > 0 && (
+          <Button title="Clear Cart" />
+        )}
+      </div>
       {dataState?.cart &&
         dataState?.cart?.map((cartItem) => {
           const {

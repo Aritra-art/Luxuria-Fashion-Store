@@ -68,18 +68,6 @@ export const Cart = () => {
     return (
       <>
         <h2 className="wishlist-header">My Cart</h2>
-        <div
-          style={{ marginLeft: "20px" }}
-          onClick={() => {
-            clearCart(dispatchData, dataState);
-            successToastMsg("Cart Cleared");
-          }}
-        >
-          {dataState?.cart && dataState?.cart?.length > 0 && (
-            <Button title="Clear Cart" />
-          )}
-        </div>
-
         <div className="cart-container-layout">
           <div className="cart-container-items">
             <CartItemsRender />

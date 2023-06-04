@@ -2,7 +2,7 @@
 
 The LUXURIA ecommerce app is showcases a vast collection of dresses, ranging from casual to formal, ensuring there's something to suit every occasion and personal taste. From stunning evening gowns to chic summer dresses, you'll find it all in one place.
 
-[Shop Brands](luxuria-fashion-store.vercel.app/)
+[Shop Brands](https://luxuria-fashion-store.vercel.app/)
 
 ## How to install and run on Local :
 
