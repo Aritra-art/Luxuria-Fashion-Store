@@ -13,6 +13,7 @@ export const ProductList = () => {
   const { dataState } = useContext(DataContext);
   const { filterState } = useContext(FilterContext);
   const filteredArr = filteredArray(dataState, filterState);
+  // const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <>
@@ -29,7 +30,7 @@ export const ProductList = () => {
         )}
 
         {!dataState?.isLoading && (
-          <div className="productlist-filter">
+          <div className={`productlist-filter `}>
             <Filters />
           </div>
         )}
@@ -66,6 +67,9 @@ export const ProductList = () => {
               <SortOptions />
             </div>
           </div>
+          {/* <span>
+            <i className="fa-solid fa-filter responsive-filter-btn"></i>
+          </span> */}
 
           {filteredArr.length > 0 ? (
             <div className="productlist-products">
