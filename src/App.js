@@ -13,6 +13,7 @@ import { RequireAuth } from "./utils/Auth/RequireAuth";
 import { Profile } from "./pages/Profile";
 import { ToastContainer } from "react-toastify";
 import { Success } from "./pages/Success";
+import { PageNotFound } from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
